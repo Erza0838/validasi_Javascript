@@ -1,0 +1,84 @@
+body
+{
+	background-color: salmon;
+	box-sizing: var(--Border-Box);
+	/*display: flex;
+	align-items: center;
+	justify-content: center;*/
+}
+
+:root
+{
+	--Border-Color: rgba(20,20,20,1.0);
+	--Border-Box: border-box;
+	--Form-Background-Color: rgba(33, 100, 74, 1.0);
+}
+
+
+.Attendance_Code
+{
+	position: relative;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	background-color: var(--Form-Background-Color);
+	width: 39vw;
+	height: 19vh;
+	transform: translate(0, 5vmin);
+	border: .17vw solid var(--Border-Color);
+	border-radius: 1vmin;
+	box-sizing: var(--Border-Box);
+	font-weight: bold;
+}
+
+.Attendance_Container
+{	
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	flex-direction: column;
+	border: .17vw solid var(--Border-Color);
+	padding: 1em 1em 1em 1em;
+	max-width: calc(117vmin + 1vw);
+	min-height: calc(45vh * 1.5);
+	margin-top: 13vh;
+	border-radius: 1vmin;
+	background-color: var(--Form-Background-Color);
+}
+
+form
+{	
+	position: absolute;
+	display: grid;
+	gap: 1.8rem;
+	translate: 0 -1.4em;
+}
+
+form > input, button
+{
+	display: inline-block;
+	padding: .9em .9em .9em .9em;
+	border-radius: 1vmin;
+	border: none;
+	min-width: 27vw;
+	box-sizing: var(--Border-Box);
+}
+
+form > input:focus
+{
+	border: none;
+}
+
+label
+{
+	font-weight: bold;
+}
+
+input + button
+{
+	cursor: pointer;
+}
+
