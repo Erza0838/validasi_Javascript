@@ -12,6 +12,44 @@ const randomAlphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n",
 
 const randomNumber = document.getElementById("Attendance_Random_Code")
 
+// Bagian object yang terdiri dari array dan element html
+let setOfLeter = 
+{
+	Letters : randomAlphabet,
+	RandomCodeElement : codeId
+}
+// Bagian akhir Object
+
+// Fucntion untuk menampilkan array
+function ShowArrayValue()
+{
+	let listAlphabet = setOfLeter.Letters
+
+	for(let listLetters of listAlphabet)
+	{
+		return window.listLetters
+	}
+}
+// Baris akhir function
+
+// Function untuk menghasilkan code acak
+function RandomCode(max)
+		{
+	let randomElement = setOfLeter.RandomCodeElement
+
+	randomElement = Math.random(Math.floor(2)) * max
+
+	if(randomElement)
+	{
+		while(randomElement.length < window.listAlphabet.length)
+		{
+			return randomElement += ShowArrayValue()
+		}
+	}
+}
+// Bagian akhir function 
+console.log(RandomCode(3))
+
 // Object untuk menyimpan variabel input 
 let inputData = 
 {
@@ -19,26 +57,24 @@ let inputData =
 	NumberStudents : studentsNumber.value,
 	RandomNumberProperty : randomNumber,
 	FormContainer : bodyForm,
-	SubmitStudentsData : sendData,	
+	SubmitStudentsData : sendData,
+	TruegMessage : "Data siswa tidak kosong",
+	WronggMessage : "Data siswa tidak kosong",
 	CheckInputData : function CheckStudentsNameInput()
 					{	
-						let disabledButton = inputData.SubmitStudentsData
-
-						var actionSubmit = this.FormContainer
+						let disabledButton = this.SubmitStudentsData
 
 						let randomNumberValue = this.RandomNumberProperty
 
-						if(Object.values(this).includes(studentsName.value) && Object.values(this).includes(studentsNumber.value) !== null) 
+						if(studentsName.value && studentsNumber.value !== null) 
 						{	
-							console.log("Data siswa tidak kosong")
-
+							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
-
-							return  actionSubmit.preventDefault()
+							RandomCodeContainer();
 						}
 							else
 							{	
-								console.log("Data siswa kosong")
+								window.alert(this.WrongMessage)
 								return disabledButton.disabled = false
 							}
 					}
@@ -59,8 +95,10 @@ sendSubmitForm.addEventListener("submit",Send_Student_Data,false)
 // Baris akhir event
 
 // function untuk mengirim data para siswa
-function Send_Student_Data()
+function Send_Student_Data(event)
 {	
+	event.preventDefault()
+
 	// Variabel untuk menyimpan property dan method pada object
 	let submitDataFunction = inputData.CheckInputData()
 
@@ -69,35 +107,11 @@ function Send_Student_Data()
 
 	switch(submitDataFunction)
 	{ 	
-		case submitDataFunction :
+		case submitDataFunction : 
 		case !null : return submitDataFunction
-			break
-		case null :
-		case !submitDataFunction : return senderForm.preventDefault()
-			break
+		case  !submitDataFunction : return senderForm.preventDefault()
 	}
 
 	return submitDataFunction
 }
-// Send_Student_Data()
 // Baris akhir function
-
-// Bagian object yang terdiri dari array dan element html
-let setOfLeter = 
-{
-	Letter : randomAlphabet,
-	RandomCodeElement : codeId
-}
-// Bagian akhir Object
-
-// Function untuk menghasilkan code acak
-function RandomCode(RandomArray)
-{
-	setOfLeter.RandomCodeElement = Math.random()
-
-	return setOfLeter.RandomCodeElement
-}
-// Bagian akhir function 
-
-// console.log(RandomCode(30 * 2))
-

@@ -12,6 +12,8 @@ body
 	--Border-Color: rgba(20,20,20,1.0);
 	--Border-Box: border-box;
 	--Form-Background-Color: rgba(33, 100, 74, 1.0);
+	--None-Value: none;
+	--Block-Display: block;
 }
 
 
@@ -80,5 +82,10 @@ label
 input + button
 {
 	cursor: pointer;
+}
+
+form > input.Randome_Number_Input
+{
+	display: var(--None-Value);
 }
 
