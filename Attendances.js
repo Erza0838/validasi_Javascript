@@ -41,9 +41,9 @@ function RandomCode(max)
 
 	if(randomElement)
 	{
-		while(randomElement.length < window.listAlphabet.length)
+		while(randomElement.length < ShowArrayValue.length)
 		{
-			return randomElement += ShowArrayValue()
+			return randomElement.length + ShowArrayValue.length
 		}
 	}
 }
