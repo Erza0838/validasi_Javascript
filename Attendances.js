@@ -20,35 +20,36 @@ let setOfLeter =
 }
 // Bagian akhir Object
 
-// Fucntion untuk menampilkan array
+// Function untuk menampilkan array
 function ShowArrayValue()
 {
 	let listAlphabet = setOfLeter.Letters
 
 	for(let listLetters of listAlphabet)
-	{
-		return window.listLetters
+	{	
+		listLetters.toUpperCase()
 	}
 }
 // Baris akhir function
 
 // Function untuk menghasilkan code acak
 function RandomCode(max)
-		{
+{
 	let randomElement = setOfLeter.RandomCodeElement
 
-	randomElement = Math.random(Math.floor(2)) * max
+	randomElement += Math.random(Math.floor(2.6)) * max
 
-	if(randomElement)
+	if(isNaN(randomElement))
 	{
-		while(randomElement.length < ShowArrayValue.length)
-		{
-			return randomElement.length + ShowArrayValue.length
+		while(ShowArrayValue.length == 0)
+		{	
+			let newArray = randomElement.split(" ")
+			return console.log(newArray += ShowArrayValue())
 		}
 	}
 }
 // Bagian akhir function 
-console.log(RandomCode(3))
+console.log(RandomCode(1))
 
 // Object untuk menyimpan variabel input 
 let inputData = 
