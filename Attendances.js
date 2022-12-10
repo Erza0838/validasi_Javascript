@@ -27,9 +27,18 @@ function ShowArrayValue()
 
 	for(let listLetters of listAlphabet)
 	{	
-		listLetters.toUpperCase()
+		while(listLetters.length === 26)
+		{	
+			if(listLetters.length === 4)
+			{
+				console.log()listLetters - 2
+			}
+		}
 	}
+	return listAlphabet
 }
+console.log(ShowArrayValue())
+// setiInterval(ShowArrayValue(), 10000 /2000)
 // Baris akhir function
 
 // Function untuk menghasilkan code acak
@@ -37,19 +46,24 @@ function RandomCode(max)
 {
 	let randomElement = setOfLeter.RandomCodeElement
 
+	// console.dir(randomElement)
+
 	randomElement += Math.random(Math.floor(2.6)) * max
 
 	if(isNaN(randomElement))
 	{
 		while(ShowArrayValue.length == 0)
 		{	
-			let newArray = randomElement.split(" ")
-			return console.log(newArray += ShowArrayValue())
+			let newArray = randomElement.split(" ",5)
+
+			var numberCombination = newArray += ShowArrayValue()
+			return console.log(numberCombination)
 		}
 	}
 }
 // Bagian akhir function 
 console.log(RandomCode(1))
+console.log(RandomCode.length)
 
 // Object untuk menyimpan variabel input 
 let inputData = 
