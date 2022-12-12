@@ -12,8 +12,16 @@ const randomAlphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n",
 
 const randomNumber = document.getElementById("Attendance_Random_Code")
 
+// class ObjectProperties
+// {
+// 	DisplayToPage()
+// 	{
+
+// 	}
+// }
+
 // Bagian object yang terdiri dari array dan element html
-let setOfLeter = 
+var setOfLeter = 
 {
 	Letters : randomAlphabet,
 	RandomCodeElement : codeId
@@ -22,51 +30,68 @@ let setOfLeter =
 
 // Function untuk menampilkan array
 function ShowArrayValue()
-{
-	let listAlphabet = setOfLeter.Letters
+{	
+	// Variable untuk menyimpan objek berisi array
+	var listAlphabet = setOfLeter.Letters
 
-	// console.log(Math.floor(reducedValue))
+	var listCapslockAlphabet = setOfLeter.Letters
+	// Baris akhir variable
 
 	while(listAlphabet.length === 26)
 	{	
-		let reducedValue = Math.random() * Math.round(9.7 + 16)
+		// Variable untuk melakukan peritungan acak 
+		var reducedValue = Math.random() * Math.round(9.7 + 16)
 
-		if(reducedValue > 0 || reducedValue > listAlphabet)
+		var reducedCapslockValue = Math.random() * Math.round(9.7 + 6)
+		// Baris akhir variable 
+
+		if(reducedValue > 0  && reducedCapslockValue > 0 || reducedValue > listAlphabet)
 		{	
-			let randomInteger = Math.floor(reducedValue)
+			var randomInteger = Math.floor(reducedValue)
 
-			console.log(randomInteger)
+			var randomCapslock =  Math.floor(reducedCapslockValue)
 
-			return randomInteger
+			// Variable untuk mneyimpan hasil perhitungan acak
+			var randomeAlphabetResult = listAlphabet[randomInteger] += listCapslockAlphabet[randomCapslock].toUpperCase()
+			// Baris akhir variable
+
+			// return randomeAlphabetResult += randomInteger
+			return randomeAlphabetResult
 		}
 		break
 	}
-	return listAlphabet && reducedValue
+	return reducedValue && reducedCapslockValue
 }
+console.log(ShowArrayValue())
 // Baris akhir function
 
 // Function untuk menghasilkan code acak
 function RandomCode(max)
 {
-	let randomElement = setOfLeter.RandomCodeElement
+	var randomElement = setOfLeter.RandomCodeElement
 
-	randomElement += Math.random(Math.floor(2.6)) + max
+	var newRandomeCode = randomElement += Math.random() * Math.round(9.5 + max)
 
-	if(isNaN(randomElement))
-	{
-		while(ShowArrayValue.length == 0)
+	var numberCombination = Math.ceil(newRandomeCode) + ShowArrayValue()
+
+	// console.log(numberCombination)
+
+	// while(ShowArrayValue.length > 1 && ShowArrayValue !== undefined) + ShowArrayValue()
+	// {
+		while(numberCombination !== null || isNaN(numberCombination))
 		{	
-			let newArray = randomElement.split(" ",5)
-
-			var numberCombination = newArray + ShowArrayValue()
-
+			if(numberCombination.length > ShowArrayValue.length)
+			{	
+				console.log(numberCombination)
+				return numberCombination
+			}
 			break
 		}
-		return numberCombination
-	}
+	// 	break
+	// }
 }
+RandomCode(77)
 // Bagian akhir function 
-console.log(RandomCode(1))
 
 // Object untuk menyimpan variabel input 
 let inputData = 
