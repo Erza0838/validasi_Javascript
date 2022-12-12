@@ -62,35 +62,27 @@ function ShowArrayValue()
 	}
 	return reducedValue && reducedCapslockValue
 }
-console.log(ShowArrayValue())
 // Baris akhir function
 
 // Function untuk menghasilkan code acak
-function RandomCode(max)
+function RandomCode(FirstDecimalValue)
 {
-	var randomElement = setOfLeter.RandomCodeElement
+	// var randomElement = setOfLeter.RandomCodeElement
 
-	var newRandomeCode = randomElement += Math.random() * Math.round(9.5 + max)
+	var newRandomeNumber = Math.floor(Math.random() * Math.round(FirstDecimalValue * 7.21 * 2.8))
 
-	var numberCombination = Math.ceil(newRandomeCode) + ShowArrayValue()
-
-	// console.log(numberCombination)
-
-	// while(ShowArrayValue.length > 1 && ShowArrayValue !== undefined) + ShowArrayValue()
-	// {
-		while(numberCombination !== null || isNaN(numberCombination))
+	var numberAlphabetCombination = newRandomeNumber += ShowArrayValue()
+	
+	while(newRandomeNumber !== null || isNaN(newRandomeNumber))
+	{	
+		if(newRandomeNumber.length > ShowArrayValue.length || newRandomeNumber.length == ShowArrayValue.length)
 		{	
-			if(numberCombination.length > ShowArrayValue.length)
-			{	
-				console.log(numberCombination)
-				return numberCombination
-			}
-			break
+			return numberAlphabetCombination
 		}
-	// 	break
-	// }
+		break
+	}
 }
-RandomCode(77)
+console.log(RandomCode(24.5))
 // Bagian akhir function 
 
 // Object untuk menyimpan variabel input 
