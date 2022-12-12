@@ -25,20 +25,24 @@ function ShowArrayValue()
 {
 	let listAlphabet = setOfLeter.Letters
 
-	for(let listLetters of listAlphabet)
+	// console.log(Math.floor(reducedValue))
+
+	while(listAlphabet.length === 26)
 	{	
-		while(listLetters.length === 26)
+		let reducedValue = Math.random() * Math.round(9.7 + 16)
+
+		if(reducedValue > 0 || reducedValue > listAlphabet)
 		{	
-			if(listLetters.length === 4)
-			{
-				console.log()listLetters - 2
-			}
+			let randomInteger = Math.floor(reducedValue)
+
+			console.log(randomInteger)
+
+			return randomInteger
 		}
+		break
 	}
-	return listAlphabet
+	return listAlphabet && reducedValue
 }
-console.log(ShowArrayValue())
-// setiInterval(ShowArrayValue(), 10000 /2000)
 // Baris akhir function
 
 // Function untuk menghasilkan code acak
@@ -46,9 +50,7 @@ function RandomCode(max)
 {
 	let randomElement = setOfLeter.RandomCodeElement
 
-	// console.dir(randomElement)
-
-	randomElement += Math.random(Math.floor(2.6)) * max
+	randomElement += Math.random(Math.floor(2.6)) + max
 
 	if(isNaN(randomElement))
 	{
@@ -56,14 +58,15 @@ function RandomCode(max)
 		{	
 			let newArray = randomElement.split(" ",5)
 
-			var numberCombination = newArray += ShowArrayValue()
-			return console.log(numberCombination)
+			var numberCombination = newArray + ShowArrayValue()
+
+			break
 		}
+		return numberCombination
 	}
 }
 // Bagian akhir function 
 console.log(RandomCode(1))
-console.log(RandomCode.length)
 
 // Object untuk menyimpan variabel input 
 let inputData = 
