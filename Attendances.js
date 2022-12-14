@@ -127,19 +127,18 @@ let inputData =
 // Function untuk memunculkan angka acak
 function RandomCodeContainer(saveRandomCodeProperty)
 {	
-	let randomElement = RandomCode(24.5) 
+	const displayElementVisible = SetofLeter.RandomCodeElement
+
+	let randomElement = displayElementVisible.innerText = RandomCode(24.5) 
 
 	var DisplayRandomeCode = saveRandomCodeProperty.style.display = "flex"
 
-	if(DisplayRandomeCode)
-	{
-		DisplayRandomeCode.append = randomElement
-	}
+	return DisplayRandomeCode += randomElement
 
-	else 
-	{
-		return 
-	}
+	// else 
+	// {
+	// 	return 
+	// }
 }
 // Baris akhir function
 
