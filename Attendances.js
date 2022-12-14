@@ -67,8 +67,6 @@ function ShowArrayValue()
 // Function untuk menghasilkan code acak
 function RandomCode(FirstDecimalValue)
 {
-	// var randomElement = setOfLeter.RandomCodeElement
-
 	var newRandomeNumber = Math.floor(Math.random() * Math.round(FirstDecimalValue * 7.21 * 2.8))
 
 	var numberAlphabetCombination = newRandomeNumber += ShowArrayValue()
@@ -77,12 +75,12 @@ function RandomCode(FirstDecimalValue)
 	{	
 		if(newRandomeNumber.length > ShowArrayValue.length || newRandomeNumber.length == ShowArrayValue.length)
 		{	
-			return numberAlphabetCombination
+			numberAlphabetCombination
 		}
 		break
 	}
 }
-console.log(RandomCode(24.5))
+// console.log(RandomCode(24.5))
 // Bagian akhir function 
 
 // Object untuk menyimpan variabel input 
@@ -94,7 +92,7 @@ let inputData =
 	FormContainer : bodyForm,
 	SubmitStudentsData : sendData,
 	TruegMessage : "Data siswa tidak kosong",
-	WronggMessage : "Data siswa tidak kosong",
+	WronggMessage : "Data siswa kosong",
 	CheckInputData : function CheckStudentsNameInput()
 					{	
 						let disabledButton = this.SubmitStudentsData
@@ -104,22 +102,45 @@ let inputData =
 						if(studentsName.value && studentsNumber.value !== null) 
 						{	
 							window.alert(this.TruegMessage)
-							RandomCodeContainer(randomNumberValue)
-							RandomCodeContainer();
-						}
-							else
-							{	
-								window.alert(this.WrongMessage)
+
+							let showRandomeCode = RandomCodeContainer(randomNumberValue)
+
+							if(showRandomeCode || showRandomeCode !== null && showRandomeCode !== undefined)
+							{
 								return disabledButton.disabled = false
 							}
+
+							return showRandomeCode
+						}
+
+						else
+						{	
+							if(studentsNumber.length !== 6 || studentsNumber.length === null)
+							{
+								window.alert(this.WronggMessage)
+								return disabledButton.disabled = false
+							}
+						}
 					}
 }
 // Baris akhir object
 
 // Function untuk memunculkan angka acak
 function RandomCodeContainer(saveRandomCodeProperty)
-{
-	return saveRandomCodeProperty.style.display = "flex"
+{	
+	let randomElement = setOfLeter.RandomCodeElement + RandomCode(24.5) 
+
+	var DisplayRandomeCode = saveRandomCodeProperty.style.display = "flex"
+
+	if(DisplayRandomeCode)
+	{
+		return DisplayRandomeCode.innerText = randomElement
+	}
+
+	else 
+	{
+		return 
+	}
 }
 // Baris akhir function
 
