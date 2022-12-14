@@ -12,6 +12,8 @@ const randomAlphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n",
 
 const randomNumber = document.getElementById("Attendance_Random_Code")
 
+const tagInputRandomeCode = document.getElementById("Random_Number_Input")
+
 // class ObjectProperties
 // {
 // 	DisplayToPage()
@@ -21,10 +23,11 @@ const randomNumber = document.getElementById("Attendance_Random_Code")
 // }
 
 // Bagian object yang terdiri dari array dan element html
-var setOfLeter = 
+let setOfLeter = 
 {
 	Letters : randomAlphabet,
-	RandomCodeElement : codeId
+	RandomCodeElement : codeId,
+	RandomCodeDivElement : tagInputRandomeCode
 }
 // Bagian akhir Object
 
@@ -67,6 +70,8 @@ function ShowArrayValue()
 // Function untuk menghasilkan code acak
 function RandomCode(FirstDecimalValue)
 {
+	// var randomElement = setOfLeter.RandomCodeElement
+
 	var newRandomeNumber = Math.floor(Math.random() * Math.round(FirstDecimalValue * 7.21 * 2.8))
 
 	var numberAlphabetCombination = newRandomeNumber += ShowArrayValue()
@@ -75,7 +80,7 @@ function RandomCode(FirstDecimalValue)
 	{	
 		if(newRandomeNumber.length > ShowArrayValue.length || newRandomeNumber.length == ShowArrayValue.length)
 		{	
-			return numberAlphabetCombination
+			numberAlphabetCombination
 		}
 		break
 	}
@@ -91,34 +96,28 @@ let inputData =
 	FormContainer : bodyForm,
 	SubmitStudentsData : sendData,
 	TruegMessage : "Data siswa tidak kosong",
-	WronggMessage : "Data siswa kosong",
+	WronggMessage : "Data siswa tidak kosong",
 	CheckInputData : function CheckStudentsNameInput()
 					{	
 						let disabledButton = this.SubmitStudentsData
 
 						let randomNumberValue = this.RandomNumberProperty
 
-						if(studentsName.value && studentsNumber.value !== null) 
+						if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
 						{	
 							window.alert(this.TruegMessage)
+							RandomCodeContainer(randomNumberValue)
+						}
 
-							let showRandomeCode = RandomCodeContainer(randomNumberValue)
-
-							if(showRandomeCode && showRandomeCode !== undefined)
-							{
-								return disabledButton.disabled = false
-							}
-
-							return showRandomeCode
+						if(ShowInputTage())
+						{
+							ShowInputTage()
 						}
 
 						else
 						{	
-							if(studentsNumber.length !== 6 || studentsNumber.length === null)
-							{
-								window.alert(this.WronggMessage)
-								return disabledButton.disabled = false
-							}
+							window.alert(this.WrongMessage)
+							return disabledButton.disabled = false
 						}
 					}
 }
@@ -127,18 +126,30 @@ let inputData =
 // Function untuk memunculkan angka acak
 function RandomCodeContainer(saveRandomCodeProperty)
 {	
-	const displayElementVisible = SetofLeter.RandomCodeElement
-
-	let randomElement = displayElementVisible.innerText = RandomCode(24.5) 
-
 	var DisplayRandomeCode = saveRandomCodeProperty.style.display = "flex"
 
-	return DisplayRandomeCode += randomElement
+	return DisplayRandomeCode.innerHTML = RandomCode(24.5)
+}
+// Baris akhir function
 
-	// else 
-	// {
-	// 	return 
-	// }
+// Function untuk menampilkan input tag
+function ShowInputTage()
+{	
+	var inputDisplayBlock = setOfLeter.RandomCodeDivElement
+
+ 	if(RandomCodeContainer(saveRandomCodeProperty) || RandomCodeContainer(saveRandomCodeProperty) !== null)
+ 	{	
+ 		while(inputData.CheckInputData() !== null)
+ 		{
+ 			return inputDisplayBlock.style.display = "flex"
+ 			break
+ 		}
+ 	}
+
+ 	else
+ 	{
+ 		return
+ 	}
 }
 // Baris akhir function
 

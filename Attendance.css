@@ -85,7 +85,7 @@ input + button
 	cursor: pointer;
 }
 
-form > input.Randome_Number_Input
+form > input.Random_Number_Input
 {
 	display: var(--None-Value);
 }
