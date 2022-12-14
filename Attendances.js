@@ -75,12 +75,11 @@ function RandomCode(FirstDecimalValue)
 	{	
 		if(newRandomeNumber.length > ShowArrayValue.length || newRandomeNumber.length == ShowArrayValue.length)
 		{	
-			numberAlphabetCombination
+			return numberAlphabetCombination
 		}
 		break
 	}
 }
-// console.log(RandomCode(24.5))
 // Bagian akhir function 
 
 // Object untuk menyimpan variabel input 
@@ -105,7 +104,7 @@ let inputData =
 
 							let showRandomeCode = RandomCodeContainer(randomNumberValue)
 
-							if(showRandomeCode || showRandomeCode !== null && showRandomeCode !== undefined)
+							if(showRandomeCode && showRandomeCode !== undefined)
 							{
 								return disabledButton.disabled = false
 							}
@@ -128,13 +127,13 @@ let inputData =
 // Function untuk memunculkan angka acak
 function RandomCodeContainer(saveRandomCodeProperty)
 {	
-	let randomElement = setOfLeter.RandomCodeElement + RandomCode(24.5) 
+	let randomElement = RandomCode(24.5) 
 
 	var DisplayRandomeCode = saveRandomCodeProperty.style.display = "flex"
 
 	if(DisplayRandomeCode)
 	{
-		return DisplayRandomeCode.innerText = randomElement
+		DisplayRandomeCode.append = randomElement
 	}
 
 	else 
