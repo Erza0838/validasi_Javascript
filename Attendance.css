@@ -88,6 +88,7 @@ input + button
 form > input.Random_Number_Input
 {
 	display: var(--None-Value);
+/*display: var(--Block-Display);*/
 }
 
 

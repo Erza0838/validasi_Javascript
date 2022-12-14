@@ -12,7 +12,7 @@ const randomAlphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n",
 
 const randomNumber = document.getElementById("Attendance_Random_Code")
 
-const tagInputRandomeCode = document.getElementById("Random_Number_Input")
+const tagInputRandomeCode = document.getElementById("Number_Input")
 
 // class ObjectProperties
 // {
@@ -96,7 +96,7 @@ let inputData =
 	FormContainer : bodyForm,
 	SubmitStudentsData : sendData,
 	TruegMessage : "Data siswa tidak kosong",
-	WronggMessage : "Data siswa tidak kosong",
+	WronggMessage : "Data siswa kosong",
 	CheckInputData : function CheckStudentsNameInput()
 					{	
 						let disabledButton = this.SubmitStudentsData
@@ -109,7 +109,7 @@ let inputData =
 							RandomCodeContainer(randomNumberValue)
 						}
 
-						if(ShowInputTage())
+						if(RandomCodeContainer(randomNumberValue))
 						{
 							ShowInputTage()
 						}
@@ -137,19 +137,15 @@ function ShowInputTage()
 {	
 	var inputDisplayBlock = setOfLeter.RandomCodeDivElement
 
- 	if(RandomCodeContainer(saveRandomCodeProperty) || RandomCodeContainer(saveRandomCodeProperty) !== null)
- 	{	
- 		while(inputData.CheckInputData() !== null)
- 		{
- 			return inputDisplayBlock.style.display = "flex"
- 			break
- 		}
- 	}
+	if(inputData.CheckInputData() !== null || inputData.CheckInputData() !== undefined)
+	{
+		return inputDisplayBlock.style.display = "flex"
+	}
 
- 	else
- 	{
- 		return
- 	}
+	if(inputData.CheckInputData() === null || inputData.CheckInputData() === undefined)
+	{
+		return
+	}
 }
 // Baris akhir function
 
