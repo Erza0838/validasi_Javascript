@@ -112,17 +112,16 @@ let inputData =
 						{	
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
-
 							switch(RandomCodeContainer(randomNumberValue))
 							{	
 								case true : ShowInputTage()
-								// switch(RandomeCodeVar)
-								// {
-								// 	case null : window.alert(this.WronggMessage)
-								// 	case null :	return disabledButton.disabled = false
-								// 		break
-								// }
 								break
+								switch(RandomeCodeVar)
+								{
+									case null : window.alert(this.WronggMessage)
+									case null :	return disabledButton.disabled = false
+										break
+								}
 							}
 						}
 
@@ -131,7 +130,6 @@ let inputData =
 							window.alert(this.WronggMessage)
 							return disabledButton.disabled = false
 						}
-
 					}
 }
 // Baris akhir object
