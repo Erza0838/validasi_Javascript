@@ -12,7 +12,7 @@ const randomAlphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n",
 
 const randomNumber = document.getElementById("Attendance_Random_Code")
 
-const tagInputRandomeCode = document.getElementById("Number_Input")
+const tagInputRandomeCode = document.getElementById("Random_Number")
 
 // class ObjectProperties
 // {
@@ -93,32 +93,45 @@ let inputData =
 	NameStudents : studentsName.value,
 	NumberStudents : studentsNumber.value,
 	RandomNumberProperty : randomNumber,
+	// RandomCodeInpu : randomNumber,
 	FormContainer : bodyForm,
 	SubmitStudentsData : sendData,
 	TruegMessage : "Data siswa tidak kosong",
 	WronggMessage : "Data siswa kosong",
 	CheckInputData : function CheckStudentsNameInput()
 					{	
+						// Bagian variable yang menyimpan properti object
 						let disabledButton = this.SubmitStudentsData
 
 						let randomNumberValue = this.RandomNumberProperty
+
+						let RandomeCodeVar = setOfLeter.RandomCodeDivElement
+						// Baris akhir code 
 
 						if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
 						{	
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
-						}
 
-						if(RandomCodeContainer(randomNumberValue))
-						{
-							ShowInputTage()
+							switch(RandomCodeContainer(randomNumberValue))
+							{	
+								case true : ShowInputTage()
+								// switch(RandomeCodeVar)
+								// {
+								// 	case null : window.alert(this.WronggMessage)
+								// 	case null :	return disabledButton.disabled = false
+								// 		break
+								// }
+								break
+							}
 						}
 
 						else
 						{	
-							window.alert(this.WrongMessage)
+							window.alert(this.WronggMessage)
 							return disabledButton.disabled = false
 						}
+
 					}
 }
 // Baris akhir object
@@ -137,16 +150,17 @@ function ShowInputTage()
 {	
 	var inputDisplayBlock = setOfLeter.RandomCodeDivElement
 
-	if(inputData.CheckInputData() !== null || inputData.CheckInputData() !== undefined)
+	if(inputData.CheckInputData())
 	{
-		return inputDisplayBlock.style.display = "flex"
+		return inputDisplayBlock.style.display = "block"
 	}
 
-	if(inputData.CheckInputData() === null || inputData.CheckInputData() === undefined)
+	else
 	{
 		return
 	}
 }
+// ShowInputTage()
 // Baris akhir function
 
 // Event submit untuk mengirim data
