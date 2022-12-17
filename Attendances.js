@@ -80,11 +80,12 @@ function RandomCode(FirstDecimalValue)
 	{	
 		if(newRandomeNumber.length > ShowArrayValue.length || newRandomeNumber.length == ShowArrayValue.length)
 		{	
-			numberAlphabetCombination
+			return numberAlphabetCombination
 		}
 		break
 	}
 }
+console.log(RandomCode(24.5))
 // Bagian akhir function 
 
 // Object untuk menyimpan variabel input 
@@ -98,6 +99,8 @@ let inputData =
 	SubmitStudentsData : sendData,
 	TruegMessage : "Data siswa tidak kosong",
 	WronggMessage : "Data siswa kosong",
+	CodeInputEmpty : "Code harus diisi",
+	CodeInputFull : "Semua data sudah lengkap",
 	CheckInputData : function CheckStudentsNameInput()
 					{	
 						// Bagian variable yang menyimpan properti object
@@ -105,17 +108,22 @@ let inputData =
 
 						let randomNumberValue = this.RandomNumberProperty
 
-						let RandomeCodeVar = setOfLeter.RandomCodeDivElement
+						var RandomeCodeVar = setOfLeter.RandomCodeDivElement
 						// Baris akhir code 
 
-						if(studentsName.value && studentsNumber.value !== null || studentsNumber === 6) 
+						if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
 						{	
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
 							switch(RandomCodeContainer(randomNumberValue))
 							{
 								case RandomCodeContainer(randomNumberValue) : ShowInputTage()
-									break
+									break	
+								if(ShowInputTage() === null)
+								{	
+									window.alert(this.CodeInputEmpty)
+									return disabledButton.disabled = false
+								}
 							}
 						}
 
@@ -133,7 +141,7 @@ function RandomCodeContainer(saveRandomCodeProperty)
 {	
 	var DisplayRandomeCode = saveRandomCodeProperty.style.display = "flex"
 
-	return DisplayRandomeCode.innerHTML = RandomCode(24.5)
+	return DisplayRandomeCode += randomNumber.innerText = RandomCode(24.5)
 }
 // Baris akhir function
 
@@ -144,7 +152,6 @@ function ShowInputTage()
 
 	return inputDisplayBlock.style.display = "block"
 }
-// ShowInputTage()
 // Baris akhir function
 
 // Event submit untuk mengirim data
