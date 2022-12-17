@@ -108,20 +108,14 @@ let inputData =
 						let RandomeCodeVar = setOfLeter.RandomCodeDivElement
 						// Baris akhir code 
 
-						if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
+						if(studentsName.value !== null && studentsNumber.value !== null || studentsNumber === 6) 
 						{	
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
 							switch(RandomCodeContainer(randomNumberValue))
-							{	
+							{
 								case true : ShowInputTage()
-								break
-								switch(RandomeCodeVar)
-								{
-									case null : window.alert(this.WronggMessage)
-									case null :	return disabledButton.disabled = false
-										break
-								}
+									break
 							}
 						}
 
@@ -130,6 +124,12 @@ let inputData =
 							window.alert(this.WronggMessage)
 							return disabledButton.disabled = false
 						}
+
+						// switch(RandomeCodeVar)
+						// {
+						// 	case !null : return disabledButton.disabled = true
+						// 		break
+						// }
 					}
 }
 // Baris akhir object
@@ -148,17 +148,18 @@ function ShowInputTage()
 {	
 	var inputDisplayBlock = setOfLeter.RandomCodeDivElement
 
-	if(inputData.CheckInputData())
-	{
-		return inputDisplayBlock.style.display = "block"
-	}
+	return inputDisplayBlock.style.display = "block"
+	// if(inputData.CheckInputData())
+	// {
+	// 	return inputDisplayBlock.style.display = "block"
+	// }
 
-	else
-	{
-		return
-	}
+	// else
+	// {
+	// 	return
+	// }
 }
-// ShowInputTage()
+ShowInputTage()
 // Baris akhir function
 
 // Event submit untuk mengirim data
