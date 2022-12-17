@@ -108,13 +108,13 @@ let inputData =
 						let RandomeCodeVar = setOfLeter.RandomCodeDivElement
 						// Baris akhir code 
 
-						if(studentsName.value !== null && studentsNumber.value !== null || studentsNumber === 6) 
+						if(studentsName.value && studentsNumber.value !== null || studentsNumber === 6) 
 						{	
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
 							switch(RandomCodeContainer(randomNumberValue))
 							{
-								case true : ShowInputTage()
+								case RandomCodeContainer(randomNumberValue) : ShowInputTage()
 									break
 							}
 						}
@@ -149,17 +149,8 @@ function ShowInputTage()
 	var inputDisplayBlock = setOfLeter.RandomCodeDivElement
 
 	return inputDisplayBlock.style.display = "block"
-	// if(inputData.CheckInputData())
-	// {
-	// 	return inputDisplayBlock.style.display = "block"
-	// }
-
-	// else
-	// {
-	// 	return
-	// }
 }
-ShowInputTage()
+// ShowInputTage()
 // Baris akhir function
 
 // Event submit untuk mengirim data
