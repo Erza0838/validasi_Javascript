@@ -124,12 +124,6 @@ let inputData =
 							window.alert(this.WronggMessage)
 							return disabledButton.disabled = false
 						}
-
-						// switch(RandomeCodeVar)
-						// {
-						// 	case !null : return disabledButton.disabled = true
-						// 		break
-						// }
 					}
 }
 // Baris akhir object
