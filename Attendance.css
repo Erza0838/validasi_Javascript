@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
 body
 {
 	background-color: salmon;
@@ -9,11 +11,12 @@ body
 
 :root
 {
-	--Border-Color: rgba(20,20,20,1.0);
+	--Border-Color: rgba(11,11,11,.9);
 	--Border-Box: border-box;
 	--Form-Background-Color: rgba(33, 100, 74, 1.0);
 	--None-Value: none;
 	--Block-Display: block;
+	--Font-Title-Color: rgba(11,11,11,.9);
 }
 
 
@@ -33,6 +36,8 @@ body
 	box-sizing: var(--Border-Box);
 	font-weight: bold;
 	font-size: 5vmin;
+	font-family: 'Ubuntu', sans-serif;	
+	color: var(--Font-Title-Color);
 }
 
 .Attendance_Container
@@ -78,6 +83,8 @@ form > input:focus
 label
 {
 	font-weight: bold;
+	font-family: 'Ubuntu', sans-serif;
+	color: var(--Font-Title-Color);
 }
 
 input + button

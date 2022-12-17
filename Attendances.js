@@ -85,7 +85,6 @@ function RandomCode(FirstDecimalValue)
 		break
 	}
 }
-console.log(RandomCode(24.5))
 // Bagian akhir function 
 
 // Object untuk menyimpan variabel input 
@@ -111,21 +110,23 @@ let inputData =
 						var RandomeCodeVar = setOfLeter.RandomCodeDivElement
 						// Baris akhir code 
 
-						if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
+						if(studentsName.value  && studentsNumber.value !== null || studentsNumber.length === 6) 
 						{	
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
+
 							switch(RandomCodeContainer(randomNumberValue))
 							{
 								case RandomCodeContainer(randomNumberValue) : ShowInputTage()
-									break	
 								if(ShowInputTage() === null)
 								{	
 									window.alert(this.CodeInputEmpty)
 									return disabledButton.disabled = false
 								}
+								break	
 							}
 						}
+
 
 						else
 						{	
