@@ -23,13 +23,13 @@ body
 .Attendance_Code
 {
 	position: relative;
-	display: none;
+	display: var(--None-Value);
 	align-items: center;
 	justify-content: center;
 	margin: auto;
 	background-color: var(--Form-Background-Color);
-	width: 35vw;
-	height: 19vh;
+	width: 40vmin;
+	height: 19vmin;
 	transform: translate(0, 5vmin);
 	border: .17vw solid var(--Border-Color);
 	border-radius: 1vmin;
@@ -95,7 +95,7 @@ input + button
 form > input.Random_Number_Input
 {
 	display: var(--None-Value);
-/*display: var(--Block-Display);*/
+	/* display: var(--Block-Display); */
 }
 
 

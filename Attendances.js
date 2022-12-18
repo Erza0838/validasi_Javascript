@@ -107,23 +107,28 @@ let inputData =
 
 						let randomNumberValue = this.RandomNumberProperty
 
-						var RandomeCodeVar = setOfLeter.RandomCodeDivElement
+						var RandomeCodeVar = tagInputRandomeCode.value
 						// Baris akhir code 
 
-						if(studentsName.value  && studentsNumber.value !== null || studentsNumber.length === 6) 
+						if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
 						{	
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
 
-							if(RandomCodeContainer(randomNumberValue) && studentsName.value && studentsNumber.value !== null)
+							if(RandomCodeContainer(randomNumberValue))
 							{	
 								ShowInputTage()
-								return disabledButton.disabled = true
-								// switch(ShowInputTage())
-								// {	
-								// 	case null : window.alert(this.CodeInputEmpty)
-								// 	return disabledButton.disabled = false
-								// }
+								if(RandomeCodeVar !== null && RandomeCodeVar == RandomCode(FirstDecimalValue))
+								{	
+									window.alert(this.CodeInputFull)
+									return disabledButton.disabled = true
+								}
+
+								if(RandomeCodeVar === null && RandomeCodeVar != RandomCode(FirstDecimalValue)) 
+								{
+									window.alert(this.CodeInputEmpty)
+									return disabledButton.disabled = false
+								}
 							}
 						}
 
