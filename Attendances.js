@@ -118,16 +118,16 @@ let inputData =
 							if(RandomCodeContainer(randomNumberValue))
 							{	
 								ShowInputTage()
-								if(RandomeCodeVar !== null && RandomeCodeVar == RandomCode(FirstDecimalValue))
+								if(ShowInputTage() !== null && ShowInputTage() == RandomCode(FirstDecimalValue))
 								{	
 									window.alert(this.CodeInputFull)
 									return disabledButton.disabled = true
-								}
 
-								if(RandomeCodeVar === null && RandomeCodeVar != RandomCode(FirstDecimalValue)) 
-								{
-									window.alert(this.CodeInputEmpty)
-									return disabledButton.disabled = false
+									if(ShowInputTage() === null && ShowInputTage() != RandomCode(FirstDecimalValue)) 
+									{
+										window.alert(this.CodeInputEmpty)
+										return disabledButton.disabled = false
+									}
 								}
 							}
 						}

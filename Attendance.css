@@ -4,9 +4,6 @@ body
 {
 	background-color: salmon;
 	box-sizing: var(--Border-Box);
-	/*display: flex;
-	align-items: center;
-	justify-content: center;*/
 }
 
 :root
@@ -50,8 +47,8 @@ body
 	flex-direction: column;
 	border: .17vw solid var(--Border-Color);
 	padding: 1em 1em 1em 1em;
-	max-width: calc(117vmin + 1vw);
-	min-height: calc(45vh * 1.5);
+	width: calc(91vmin + 1%);
+	height: calc(45vmin * 1.5);
 	margin-top: 13vh;
 	border-radius: 1vmin;
 	background-color: var(--Form-Background-Color);
@@ -100,8 +97,54 @@ form > input.Random_Number_Input
 
 
 /*Bagian @media query*/
-/* @media()
-{
-	
-} */
+@media(max-width: 800px)
+{	
+	body
+	{
+		background-color: salmon;
+		/* background-color: palevioletred; */
+		box-sizing: var(--Border-Box);
+		height: 90vmax;
+	}
+
+	/* Bagian untuk menampilkan code acak */
+	.Attendance_Code
+	{
+		position: relative;
+		display: var(--None-Value);
+		align-items: center;
+		justify-content: center;
+		margin: auto;
+		background-color: var(--Form-Background-Color);
+		width: 41vmax;
+		height: 16vmax;
+		transform: translate(0, 5vmin);
+		border: .17vw solid var(--Border-Color);
+		border-radius: 1vmin;
+		box-sizing: var(--Border-Box);
+		font-weight: bold;
+		font-size: 5vmin;
+		font-family: 'Ubuntu', sans-serif;	
+		color: var(--Font-Title-Color);
+	}
+	/* Baris akhir code */
+
+	.Attendance_Container
+	{	
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: auto;
+		flex-direction: column;
+		border: .17vw solid var(--Border-Color);
+		padding: 1em 1em 1em 1em;
+		width: calc(56vmax + 1vw);
+		height: calc(37vmax * 1%);
+		margin-top: 14vh;
+		border-radius: 1vmin;
+		background-color: var(--Form-Background-Color);
+	}
+
+}
 /*Akhir baris kode*/
