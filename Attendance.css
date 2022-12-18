@@ -28,7 +28,7 @@ body
 	justify-content: center;
 	margin: auto;
 	background-color: var(--Form-Background-Color);
-	width: 39vw;
+	width: 35vw;
 	height: 19vh;
 	transform: translate(0, 5vmin);
 	border: .17vw solid var(--Border-Color);

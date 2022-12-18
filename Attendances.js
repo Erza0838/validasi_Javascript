@@ -55,11 +55,11 @@ function ShowArrayValue()
 			var randomCapslock =  Math.floor(reducedCapslockValue)
 
 			// Variable untuk mneyimpan hasil perhitungan acak
-			var randomeAlphabetResult = listAlphabet[randomInteger] += listCapslockAlphabet[randomCapslock].toUpperCase()
+			var randomAlphabetResult = listAlphabet[randomInteger] += listCapslockAlphabet[randomCapslock].toUpperCase()
 			// Baris akhir variable
 
 			// return randomeAlphabetResult += randomInteger
-			return randomeAlphabetResult
+			return randomAlphabetResult
 		}
 		break
 	}
@@ -84,6 +84,7 @@ function RandomCode(FirstDecimalValue)
 		}
 		break
 	}
+	// return numberAlphabetCombination
 }
 // Bagian akhir function 
 
@@ -93,7 +94,6 @@ let inputData =
 	NameStudents : studentsName.value,
 	NumberStudents : studentsNumber.value,
 	RandomNumberProperty : randomNumber,
-	// RandomCodeInpu : randomNumber,
 	FormContainer : bodyForm,
 	SubmitStudentsData : sendData,
 	TruegMessage : "Data siswa tidak kosong",
@@ -115,23 +115,22 @@ let inputData =
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
 
-							switch(RandomCodeContainer(randomNumberValue))
-							{
-								case RandomCodeContainer(randomNumberValue) : ShowInputTage()
-								if(ShowInputTage() === null)
-								{	
-									window.alert(this.CodeInputEmpty)
-									return disabledButton.disabled = false
-								}
-								break	
+							if(RandomCodeContainer(randomNumberValue) && studentsName.value && studentsNumber.value !== null)
+							{	
+								ShowInputTage()
+								return disabledButton.disabled = true
+								// switch(ShowInputTage())
+								// {	
+								// 	case null : window.alert(this.CodeInputEmpty)
+								// 	return disabledButton.disabled = false
+								// }
 							}
 						}
-
 
 						else
 						{	
 							window.alert(this.WronggMessage)
-							return disabledButton.disabled = false
+							// return disabledButton.disabled = false
 						}
 					}
 }
