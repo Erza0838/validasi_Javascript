@@ -27,7 +27,20 @@ let setOfLeter =
 {
 	Letters : randomAlphabet,
 	RandomCodeElement : codeId,
-	RandomCodeDivElement : tagInputRandomeCode
+	RandomCodeDivElement : tagInputRandomeCode,
+	FalseSign : function ChangeBorder()
+				{
+					switch(studentsName)
+					{
+						case true : return studentsName.style.border = ".12rem solid red"
+							break
+					}
+
+					// switch()
+					// {
+
+					// }
+				},
 }
 // Bagian akhir Object
 
@@ -107,38 +120,45 @@ let inputData =
 
 						let randomNumberValue = this.RandomNumberProperty
 
-						var RandomeCodeVar = tagInputRandomeCode.value
+						var randomCodeVar = tagInputRandomeCode.value
 						// Baris akhir code 
 
 						if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
 						{	
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
-
-							if(RandomCodeContainer(randomNumberValue))
-							{	
-								ShowInputTage()
-							}
-
-							while(ShowInputTage() && RandomeCodeVar === null && RandomeCodeVar !== RandomCode(24.5))
-							{	
-							  window.alert(this.CodeInputEmpty)
-							  return disabledButton.disabled = false
-								if(ShowInputTage() && RandomeCodeVar == RandomCode(24.5))
-								{	
-									window.alert(this.CodeInputFull)
-									console.log(RandomeCodeVar)
-									return disabledButton.disabled = true		
-								}
-							   break
-							}
+							disabledButton.disabled = true
 						}
 
 						else
 						{	
 							window.alert(this.WronggMessage)
+							setOfLeter.FalseSign()							
 							return disabledButton.disabled = false
+							// if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
+							// {
+							// 	return 
+							// }
 						}
+
+						if(ShowInputTage() && randomCodeVar == RandomCode(24.5))
+						{	
+							window.alert(this.CodeInputFull)
+							console.log(RandomCodeVar)
+							disabledButton.disabled = true	
+						}
+
+						else
+						{
+							window.alert(this.CodeInputEmpty)
+							if(ShowInputTage() && randomCodeVar == RandomCode(24.5))
+							 { 	
+							 	return
+							 }
+							return disabledButton.disabled = false
+						}	
+
+
 					}
 }
 // Baris akhir object
