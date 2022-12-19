@@ -14,6 +14,7 @@ const randomNumber = document.getElementById("Attendance_Random_Code")
 
 const tagInputRandomeCode = document.getElementById("Random_Number")
 
+
 // class ObjectProperties
 // {
 // 	DisplayToPage()
@@ -28,19 +29,34 @@ let setOfLeter =
 	Letters : randomAlphabet,
 	RandomCodeElement : codeId,
 	RandomCodeDivElement : tagInputRandomeCode,
-	FalseSign : function ChangeBorder()
-				{
-					switch(studentsName)
+	WarningNameFalse : function RedNameTag()
+					{	
+						if(studentsName)
+						{	
+							return studentsName.style.border = ".14rem solid red"
+						}
+					},
+	WarningNumbersFalse : function RedNumbersTag()
+					{	
+						if(studentsNumber)
+						{	
+							return studentsNumber.style.border = ".14rem solid red"
+						}
+					},
+	TrueNameInput : function BorderNoneNameTag()
 					{
-						case true : return studentsName.style.border = ".12rem solid red"
-							break
-					}
-
-					// switch()
-					// {
-
-					// }
-				},
+						if(studentsName)
+						{	
+							return studentsName.style.border = "none"
+						}	
+					},
+	TrueNumbersInput : function BorderNoneNumbersTag()
+						{
+							if(studentsNumber)
+							{	
+								return studentsNumber.style.border = "none"
+							}	
+						}
 }
 // Bagian akhir Object
 
@@ -123,42 +139,45 @@ let inputData =
 						var randomCodeVar = tagInputRandomeCode.value
 						// Baris akhir code 
 
-						if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
+						if(studentsName.value !== "" && studentsNumber.value !== null || studentsNumber.length === 6) 
 						{	
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
-							disabledButton.disabled = true
+
+							setOfLeter.TrueNameInput() && setOfLeter.TrueNumbersInput()
+							if(ShowInputTage())
+							{
+								if(ShowInputTage() && randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
+								{	
+									window.alert(this.CodeInputFull)
+									return disabledButton.disabled = true
+								}	
+
+								else
+								{
+									window.alert(this.CodeInputEmpty)
+									return disabledButton.disabled = false		
+								}	
+							}
+							return disabledButton.disabled = true
 						}
 
 						else
 						{	
 							window.alert(this.WronggMessage)
-							setOfLeter.FalseSign()							
-							return disabledButton.disabled = false
-							// if(studentsName.value && studentsNumber.value !== null || studentsNumber.length === 6) 
+							setOfLeter.WarningNameFalse() && setOfLeter.WarningNumbersFalse()
+							// if(studentsName.value !== "" && studentsNumber.value !== null || studentsNumber.length === 6)
 							// {
-							// 	return 
+							// 	return disabledButton.disabled = true
 							// }
-						}
-
-						if(ShowInputTage() && randomCodeVar == RandomCode(24.5))
-						{	
-							window.alert(this.CodeInputFull)
-							console.log(RandomCodeVar)
-							disabledButton.disabled = true	
-						}
-
-						else
-						{
-							window.alert(this.CodeInputEmpty)
-							if(ShowInputTage() && randomCodeVar == RandomCode(24.5))
-							 { 	
-							 	return
-							 }
 							return disabledButton.disabled = false
-						}	
+						}
 
-
+						// else if(!ShowInputTage && randomCodeVar === null && randomCodeVar !== RandomCode(24.5))
+						// {	
+						// 	window.alert(this.CodeInputEmpty)
+						// 	return disabledButton.disabled = false
+						// }
 					}
 }
 // Baris akhir object
