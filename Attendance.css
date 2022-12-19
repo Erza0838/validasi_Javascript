@@ -29,7 +29,7 @@ body
 	height: 19vmin;
 	transform: translate(0, 5vmin);
 	border: .17vw solid var(--Border-Color);
-	border-radius: 1vmin;
+	border-radius: 1.9vmin;
 	box-sizing: var(--Border-Box);
 	font-weight: bold;
 	font-size: 5vmin;
@@ -95,8 +95,9 @@ form > input.Random_Number_Input
 	/* display: var(--Block-Display); */
 }
 
-
 /*Bagian @media query*/
+
+/*Lebar Maksimal*/
 @media(max-width: 800px)
 {	
 	body
@@ -137,14 +138,119 @@ form > input.Random_Number_Input
 		justify-content: center;
 		margin: auto;
 		flex-direction: column;
-		border: .17vw solid var(--Border-Color);
+		border: .12rem solid var(--Border-Color);
 		padding: 1em 1em 1em 1em;
 		width: calc(56vmax + 1vw);
 		height: calc(37vmax * 1%);
 		margin-top: 14vh;
-		border-radius: 1vmin;
+		border-radius: .8rem;
 		background-color: var(--Form-Background-Color);
 	}
 
+	/* Bagian form untuk input */
+	form
+	{	
+		position: absolute;
+		display: grid;
+		gap: 1.8rem;
+		translate: 0 -1.4em;
+	}
+
+	form > input, button
+	{
+		display: inline-block;
+		padding: .6em .6em .6em .6em;
+		border-radius: 1vmin;
+		border: none;
+		width: 41vw;
+		box-sizing: var(--Border-Box);
+	}
+
+	form > input:focus
+	{
+		border: none;
+	}
+
+	label
+	{
+		font-weight: bold;
+		font-family: 'Ubuntu', sans-serif;
+		color: var(--Font-Title-Color);
+	}
+
+	input + button
+	{
+		cursor: pointer;
+	}
+
+	form > input.Random_Number_Input
+	{
+		display: var(--None-Value);
+	}
+	/* Baris akhir form */
+}
+
+/*Tinggi minimal*/
+@media(min-height: 980px)
+{
+	.Attendance_Container
+	{	
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: auto;
+		flex-direction: column;
+		border: .12rem solid var(--Border-Color);
+		padding: 1em 1em 1em 1em;
+		width: 50vmax;
+		height: 60vmax;
+		margin-top: 30vh;
+		border-radius: .8rem;
+		background-color: var(--Form-Background-Color);
+	}
+
+	/* Bagian form untuk input */
+	form
+	{	
+		position: absolute;
+		display: grid;
+		gap: 1.9rem;
+		translate: 0 -1.4em;
+	}
+
+	form > input, button
+	{
+		display: inline-block;
+		padding: .6em .6em .6em .6em;
+		border-radius: 1vmin;
+		border: none;
+		width: 41vw;
+		box-sizing: var(--Border-Box);
+	}
+
+	form > input:focus
+	{
+		border: none;
+	}
+
+	label
+	{
+		font-weight: bold;
+		font-family: 'Ubuntu', sans-serif;
+		color: var(--Font-Title-Color);
+		/*gap: 2rem;*/;
+		transform: translate(0,1rem);
+	}
+
+	input + button
+	{
+		cursor: pointer;
+	}
+
+	form > input.Random_Number_Input
+	{
+		display: var(--None-Value);
+	}
 }
 /*Akhir baris kode*/
