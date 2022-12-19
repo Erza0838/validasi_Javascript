@@ -14,6 +14,14 @@ const randomNumber = document.getElementById("Attendance_Random_Code")
 
 const tagInputRandomeCode = document.getElementById("Random_Number")
 
+var pageRedirect = window.location.href
+
+var pageSource = "Attendance_Succes/index.html"
+
+if(pageRedirect += pageSource)
+{
+	console.log("Testing")
+}
 
 // class ObjectProperties
 // {
