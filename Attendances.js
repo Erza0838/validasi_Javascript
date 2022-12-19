@@ -118,24 +118,26 @@ let inputData =
 							if(RandomCodeContainer(randomNumberValue))
 							{	
 								ShowInputTage()
-								if(ShowInputTage() !== null && ShowInputTage() == RandomCode(FirstDecimalValue))
+							}
+
+							while(ShowInputTage() && RandomeCodeVar === null && RandomeCodeVar !== RandomCode(24.5))
+							{	
+							  window.alert(this.CodeInputEmpty)
+							  return disabledButton.disabled = false
+								if(ShowInputTage() && RandomeCodeVar == RandomCode(24.5))
 								{	
 									window.alert(this.CodeInputFull)
-									return disabledButton.disabled = true
-
-									if(ShowInputTage() === null && ShowInputTage() != RandomCode(FirstDecimalValue)) 
-									{
-										window.alert(this.CodeInputEmpty)
-										return disabledButton.disabled = false
-									}
+									console.log(RandomeCodeVar)
+									return disabledButton.disabled = true		
 								}
+							   break
 							}
 						}
 
 						else
 						{	
 							window.alert(this.WronggMessage)
-							// return disabledButton.disabled = false
+							return disabledButton.disabled = false
 						}
 					}
 }
