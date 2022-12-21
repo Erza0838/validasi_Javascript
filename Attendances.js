@@ -48,6 +48,13 @@ let setOfLeter =
 							return studentsNumber.style.border = ".14rem solid red"
 						}
 					},
+	WarningRandomCodeFalse : function RedRandomCodeTag()
+					{	
+						if(tagInputRandomeCode)
+						{	
+							return tagInputRandomeCode.style.border = ".14rem solid red"
+						}
+					},
 	TrueNameInput : function BorderNoneNameTag()
 					{
 						if(studentsName)
@@ -61,7 +68,14 @@ let setOfLeter =
 							{	
 								return studentsNumber.style.border = "none"
 							}	
+						},
+    TrueRandomCode : function BorderNoneRedRandomCodeTag()
+					{
+						if(tagInputRandomeCode)
+						{	
+							return tagInputRandomeCode.style.border = "none"
 						}
+					}
 }
 // Bagian akhir Object
 
@@ -144,33 +158,37 @@ let inputData =
 						var randomCodeVar = tagInputRandomeCode.value
 						// Baris akhir code 
 
-						if(studentsName.value !== "" && studentsNumber.value !== null || studentsNumber.length === 6) 
+						if(studentsName.value !== "" && studentsNumber.value !== "" || studentsNumber.length === 6) 
 						{	
 							window.alert(this.TruegMessage)
+
 							RandomCodeContainer(randomNumberValue)
 
-							if(ShowInputTage() && randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
-							{	
-								window.alert(this.CodeInputFull)
-								return redirectLocation 
-							}	
+							setOfLeter.TrueNameInput() && setOfLeter.TrueNumbersInput()
 
-							else
+							ShowInputTage()
+							if(ShowInputTage)
 							{
-								window.alert(this.CodeInputEmpty)
-								return
-							}	
-							return setOfLeter.TrueNameInput() && setOfLeter.TrueNumbersInput()
+								if(randomCodeVar !== "" || randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
+								{
+									window.alert(this.CodeInputFull)
+									return setOfLeter.TrueRandomCode()
+								}
+								
+								else								
+								{
+									window.alert(this.CodeInputEmpty)
+									return setOfLeter.WarningRandomCodeFalse()
+								}		
+							}
+							return redirectLocation
 						}
 
-						else
+						else if(studentsName.value === "" && studentsNumber.value === "" || studentsNumber.length !== 6)  
 						{	
 							window.alert(this.WronggMessage)
-							setOfLeter.WarningNameFalse() && setOfLeter.WarningNumbersFalse()
-							// return disabledButton.disabled = false
-							return 
+							return setOfLeter.WarningNameFalse() && setOfLeter.WarningNumbersFalse() 
 						}
-
 					}
 }
 // Baris akhir object
