@@ -18,10 +18,7 @@ var pageRedirect = window.location.href
 
 var pageSource = "Attendance_Succes/index.html"
 
-if(pageRedirect += pageSource)
-{
-	console.log("Testing")
-}
+var redirectLocation = pageRedirect += pageSource
 
 // class ObjectProperties
 // {
@@ -152,40 +149,28 @@ let inputData =
 							window.alert(this.TruegMessage)
 							RandomCodeContainer(randomNumberValue)
 
-							setOfLeter.TrueNameInput() && setOfLeter.TrueNumbersInput()
-							if(ShowInputTage())
-							{
-								if(ShowInputTage() && randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
-								{	
-									window.alert(this.CodeInputFull)
-									return disabledButton.disabled = true
-								}	
+							if(ShowInputTage() && randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
+							{	
+								window.alert(this.CodeInputFull)
+								return redirectLocation 
+							}	
 
-								else
-								{
-									window.alert(this.CodeInputEmpty)
-									return disabledButton.disabled = false		
-								}	
-							}
-							return disabledButton.disabled = true
+							else
+							{
+								window.alert(this.CodeInputEmpty)
+								return
+							}	
+							return setOfLeter.TrueNameInput() && setOfLeter.TrueNumbersInput()
 						}
 
 						else
 						{	
 							window.alert(this.WronggMessage)
 							setOfLeter.WarningNameFalse() && setOfLeter.WarningNumbersFalse()
-							// if(studentsName.value !== "" && studentsNumber.value !== null || studentsNumber.length === 6)
-							// {
-							// 	return disabledButton.disabled = true
-							// }
-							return disabledButton.disabled = false
+							// return disabledButton.disabled = false
+							return 
 						}
 
-						// else if(!ShowInputTage && randomCodeVar === null && randomCodeVar !== RandomCode(24.5))
-						// {	
-						// 	window.alert(this.CodeInputEmpty)
-						// 	return disabledButton.disabled = false
-						// }
 					}
 }
 // Baris akhir object
