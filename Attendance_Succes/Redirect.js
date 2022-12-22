@@ -1,3 +1,3 @@
-let textMessage = innerText("Hai")
+let welcomeMessage = document.getElementById("Paragraf")
 
-body.textMessage
+welcomeMessage.innerText = "Selamat datang"
