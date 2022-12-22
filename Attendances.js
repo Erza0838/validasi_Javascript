@@ -1,3 +1,5 @@
+
+// Baris untuk menyimpan varaible
 let codeId = document.getElementById("Attendance_Random_Code")
 
 let sendData = document.getElementById("Send_Students_Data")
@@ -14,11 +16,12 @@ const randomNumber = document.getElementById("Attendance_Random_Code")
 
 const tagInputRandomeCode = document.getElementById("Random_Number")
 
-var pageRedirect = window.location.href
+// var pageRedirect = window.location.href
 
-var pageSource = "Attendance_Succes/index.html"
+// var pageSource = "Attendance_Succes/index.html"
 
-var redirectLocation = pageRedirect += pageSource
+// var redirectLocation = pageRedirect += pageSource
+// Baris akhir code
 
 // class ObjectProperties
 // {
@@ -34,6 +37,7 @@ let setOfLeter =
 	Letters : randomAlphabet,
 	RandomCodeElement : codeId,
 	RandomCodeDivElement : tagInputRandomeCode,
+	// Kumpulan function untuk memberi tanda apakah data sudah lengkap
 	WarningNameFalse : function RedNameTag()
 					{	
 						if(studentsName)
@@ -76,6 +80,7 @@ let setOfLeter =
 							return tagInputRandomeCode.style.border = "none"
 						}
 					}
+// Baris akhir kumpulan function
 }
 // Bagian akhir Object
 
@@ -96,7 +101,7 @@ function ShowArrayValue()
 		var reducedCapslockValue = Math.random() * Math.round(9.7 + 6)
 		// Baris akhir variable 
 
-		if(reducedValue > 0  && reducedCapslockValue > 0 || reducedValue > listAlphabet)
+		if(reducedValue > 0 && reducedCapslockValue > 0 || reducedValue > listAlphabet)
 		{	
 			var randomInteger = Math.floor(reducedValue)
 
@@ -148,10 +153,11 @@ let inputData =
 	WronggMessage : "Data siswa kosong",
 	CodeInputEmpty : "Code harus diisi",
 	CodeInputFull : "Semua data sudah lengkap",
+	// Function untuk validasi data siswa
 	CheckInputData : function CheckStudentsNameInput()
 					{	
 						// Bagian variable yang menyimpan properti object
-						let disabledButton = this.SubmitStudentsData
+						// let disabledButton = this.SubmitStudentsData
 
 						let randomNumberValue = this.RandomNumberProperty
 
@@ -172,7 +178,8 @@ let inputData =
 								if(randomCodeVar !== "" || randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
 								{
 									window.alert(this.CodeInputFull)
-									return setOfLeter.TrueRandomCode()
+									console.table(randomCodeVar)
+									return window.location.href = "Attendance_Succes/Redirect.html"
 								}
 								
 								else								
@@ -181,7 +188,7 @@ let inputData =
 									return setOfLeter.WarningRandomCodeFalse()
 								}		
 							}
-							return redirectLocation
+							return window.location.href = "Attendance_Succes/Redirect.html"
 						}
 
 						else if(studentsName.value === "" && studentsNumber.value === "" || studentsNumber.length !== 6)  
@@ -189,8 +196,27 @@ let inputData =
 							window.alert(this.WronggMessage)
 							return setOfLeter.WarningNameFalse() && setOfLeter.WarningNumbersFalse() 
 						}
-					}
+					},
+// Baris akhir function
+
+// Function untuk berpindah halaman
+ConvertJson : function NewJsonData()
+		  {	
+		  	var allStudentsData = [this.NameStudents,this.NumberStudents, window.randomCodeVar]
+
+		  	var newJson = JSON.parse(allStudentsData)
+
+		  	if(allStudentsData !== null && allStudentsData > 10)
+		  	{
+		  		if(newJson) 
+		  		{	
+		  			console.log(newJson.value)
+		  		}
+		  	}
+		  }
+// Baris akhir function
 }
+inputData.ConvertJson()
 // Baris akhir object
 
 // Function untuk memunculkan angka acak
@@ -233,6 +259,7 @@ function Send_Student_Data(event)
 		case submitDataFunction : 
 		case !null : return submitDataFunction
 		case  !submitDataFunction : return senderForm.preventDefault()
+			break
 	}
 
 	return submitDataFunction
