@@ -15,21 +15,7 @@ const randomAlphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n",
 const randomNumber = document.getElementById("Attendance_Random_Code")
 
 const tagInputRandomeCode = document.getElementById("Random_Number")
-
-// var pageRedirect = window.location.href
-
-// var pageSource = "Attendance_Succes/index.html"
-
-// var redirectLocation = pageRedirect += pageSource
 // Baris akhir code
-
-// class ObjectProperties
-// {
-// 	DisplayToPage()
-// 	{
-
-// 	}
-// }
 
 // Bagian object yang terdiri dari array dan element html
 let setOfLeter = 
@@ -157,7 +143,6 @@ let inputData =
 	CheckInputData : function CheckStudentsNameInput()
 					{	
 						// Bagian variable yang menyimpan properti object
-						// let disabledButton = this.SubmitStudentsData
 
 						let randomNumberValue = this.RandomNumberProperty
 
@@ -178,7 +163,6 @@ let inputData =
 								if(randomCodeVar !== "" || randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
 								{
 									window.alert(this.CodeInputFull)
-									console.table(randomCodeVar)
 									return window.location.href = "Attendance_Succes/Redirect.html"
 								}
 								
@@ -199,24 +183,25 @@ let inputData =
 					},
 // Baris akhir function
 
-// Function untuk berpindah halaman
+// Function untuk mengirim file ke json
 ConvertJson : function NewJsonData()
-		  {	
-		  	var allStudentsData = [this.NameStudents,this.NumberStudents, window.randomCodeVar]
+			  {	
+			  	var allStudentsData = [this.NameStudents, this.NumberStudents, window.randomCodeVar]
 
-		  	var newJson = JSON.parse(allStudentsData)
+				var newJson = JSON.stringify(allStudentsData)
 
-		  	if(allStudentsData !== null && allStudentsData > 10)
-		  	{
-		  		if(newJson) 
-		  		{	
-		  			console.log(newJson.value)
-		  		}
-		  	}
+			  	if(allStudentsData !== null || allStudentsData !== "" && allStudentsData > 10)
+			  	{
+			  		console.log(newJson)
+			  		// if(typeof(newJson) === null) 
+			  		// {	
+			  		// 	console.log(newJson)
+			  		// }
+			  		return newJson
+			  	}
 		  }
 // Baris akhir function
 }
-inputData.ConvertJson()
 // Baris akhir object
 
 // Function untuk memunculkan angka acak
@@ -240,8 +225,24 @@ function ShowInputTage()
 // Event submit untuk mengirim data
 const sendSubmitForm = inputData.FormContainer
 
-sendSubmitForm.addEventListener("submit",Send_Student_Data,false)
+const submitStudentsData = sendSubmitForm.addEventListener("submit",Send_Student_Data,false)
 // Baris akhir event
+
+// Function untuk mengirim data ke file json
+function SendToJson()
+{	
+	let sendJsonData = inputData.ConvertJson()
+
+	switch(submitStudentsData)
+	{
+		case "submit" : return sendJsonData
+			break
+		case null : return
+			break
+	}
+}
+SendToJson()
+// Baris akhir fucntion 
 
 // function untuk mengirim data para siswa
 function Send_Student_Data(event)
@@ -261,7 +262,6 @@ function Send_Student_Data(event)
 		case  !submitDataFunction : return senderForm.preventDefault()
 			break
 	}
-
 	return submitDataFunction
 }
 // Baris akhir function
