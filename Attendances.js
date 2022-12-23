@@ -96,7 +96,6 @@ function ShowArrayValue()
 			var randomAlphabetResult = listAlphabet[randomInteger] += listCapslockAlphabet[randomCapslock].toUpperCase()
 			// Baris akhir variable
 
-			// return randomeAlphabetResult += randomInteger
 			return randomAlphabetResult
 		}
 		break
@@ -160,8 +159,14 @@ let inputData =
 							if(ShowInputTage)
 							{
 								if(randomCodeVar !== "" || randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
-								{
+								{	
+									var allStudentsData = [studentsName.value, studentsNumber.value, randomCodeVar.value]
+
 									window.alert(this.CodeInputFull)
+									if(allStudentsData !== null || allStudentsData !== "")
+									{
+										console.log(JSON.stringify(allStudentsData))
+									}
 									return window.location.href = "Attendance_Succes/Redirect.html"
 								}
 								
@@ -183,22 +188,22 @@ let inputData =
 // Baris akhir function
 
 // Function untuk mengirim file ke json
-ConvertJson : function NewJsonData()
-			  {	
-			  	var allStudentsData = [this.NameStudents, this.NumberStudents, window.randomCodeVar]
+// ConvertJson : function NewJsonData()
+// 			  {	
+// 			  	var allStudentsData = [this.NameStudents, this.NumberStudents, window.randomCodeVar]
 
-				var newJson = JSON.stringify(allStudentsData)
+// 				var newJson = JSON.stringify(allStudentsData)
 
-			  	if(allStudentsData !== null || allStudentsData !== "" && allStudentsData > 10)
-			  	{
-			  		console.log(newJson)
-			  		// if(typeof(newJson) === null) 
-			  		// {	
-			  		// 	console.log(newJson)
-			  		// }
-			  		return newJson
-			  	}
-		  }
+// 			  	if(allStudentsData !== null || allStudentsData !== "" && allStudentsData > 10)
+// 			  	{
+// 			  		console.log(newJson)
+// 			  		// if(typeof(newJson) === null) 
+// 			  		// {	
+// 			  		// 	console.log(newJson)
+// 			  		// }
+// 			  		return newJson
+// 			  	}
+// 		  }
 // Baris akhir function
 }
 // Baris akhir object
@@ -228,19 +233,23 @@ const submitStudentsData = sendSubmitForm.addEventListener("submit",Send_Student
 // Baris akhir event
 
 // Function untuk mengirim data ke file json
-function SendToJson()
-{	
-	let sendJsonData = inputData.ConvertJson()
+// function SendToJson()
+// {	
+// 	let sendJsonData = inputData.ConvertJson()
 
-	switch(submitStudentsData)
-	{
-		case "submit" : return sendJsonData
-			break
-		case null : return
-			break
-	}
-}
-SendToJson()
+// 	switch(submitStudentsData)
+// 	{
+// 		case "submit" : while(submitStudentsData === "submit")
+// 						{
+// 							return sendJsonData	
+// 							break
+// 						}
+// 			break
+// 		case null : return
+// 			break
+// 	}
+// }
+// SendToJson()
 // Baris akhir fucntion 
 
 // function untuk mengirim data para siswa
@@ -256,9 +265,9 @@ function Send_Student_Data(event)
 
 	switch(submitDataFunction)
 	{ 	
-		case submitDataFunction : 
-		case !null : return submitDataFunction
-		case  !submitDataFunction : return senderForm.preventDefault()
+		case submitDataFunction : return submitDataFunction
+		case !null :  return window.location.href = "Attendance_Succes/Redirect.html" 
+		case !submitDataFunction : return senderForm.preventDefault()
 			break
 	}
 	return submitDataFunction
