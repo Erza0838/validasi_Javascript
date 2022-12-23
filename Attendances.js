@@ -1,4 +1,3 @@
-
 // Baris untuk menyimpan varaible
 let codeId = document.getElementById("Attendance_Random_Code")
 
