@@ -4,6 +4,7 @@ body
 {
 	background-color: salmon;
 	box-sizing: var(--Border-Box);
+	scroll-behavior: smooth;
 }
 
 :root
@@ -52,6 +53,7 @@ body
 	margin-top: 13vh;
 	border-radius: 1vmin;
 	background-color: var(--Form-Background-Color);
+	box-sizing: var(--Border-Box);
 }
 
 form
@@ -103,9 +105,9 @@ form > input.Random_Number_Input
 	body
 	{
 		background-color: salmon;
-		/* background-color: palevioletred; */
 		box-sizing: var(--Border-Box);
 		height: 100vmax;
+		scroll-behavior: smooth
 	}
 
 	/* Bagian untuk menampilkan code acak */
@@ -145,6 +147,7 @@ form > input.Random_Number_Input
 		margin-top: 14vh;
 		border-radius: .8rem;
 		background-color: var(--Form-Background-Color);
+		box-sizing: var(--Border-Box);
 	}
 
 	/* Bagian form untuk input */
@@ -192,7 +195,15 @@ form > input.Random_Number_Input
 
 /*Tinggi minimal*/
 @media(min-height: 980px)
-{
+{	
+	body
+	{
+		background-color: salmon;
+		box-sizing: var(--Border-Box);
+		height: 90vmax;
+		scroll-behavior: smooth
+	}
+
 	.Attendance_Container
 	{	
 		position: relative;

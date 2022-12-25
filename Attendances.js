@@ -16,6 +16,7 @@ const randomNumber = document.getElementById("Attendance_Random_Code")
 const tagInputRandomeCode = document.getElementById("Random_Number")
 // Baris akhir code
 
+
 // Bagian object yang terdiri dari array dan element html
 let setOfLeter = 
 {
@@ -164,10 +165,10 @@ let inputData =
 
 									window.alert(this.CodeInputFull)
 									if(allStudentsData !== null || allStudentsData !== "")
-									{
-										console.log(JSON.stringify(allStudentsData))
+									{	
+										this.FormDataField()										
 									}
-									return window.location.href = "Attendance_Succes/Redirect.html"
+									// return window.location.href = "Attendance_Succes/Redirect.html"
 								}
 								
 								else								
@@ -176,7 +177,6 @@ let inputData =
 									return setOfLeter.WarningRandomCodeFalse()
 								}		
 							}
-							return window.location.href = "Attendance_Succes/Redirect.html"
 						}
 
 						else if(studentsName.value === "" && studentsNumber.value === "" || studentsNumber.length !== 6)  
@@ -185,26 +185,42 @@ let inputData =
 							return setOfLeter.WarningNameFalse() && setOfLeter.WarningNumbersFalse() 
 						}
 					},
-// Baris akhir function
+	// Baris akhir function
 
-// Function untuk mengirim file ke json
-// ConvertJson : function NewJsonData()
-// 			  {	
-// 			  	var allStudentsData = [this.NameStudents, this.NumberStudents, window.randomCodeVar]
+	// Function untuk mengirim data ke file json
+	FormDataField : function transferData()
+				{
+					// let allData = new FormData(bodyForm)
 
-// 				var newJson = JSON.stringify(allStudentsData)
-
-// 			  	if(allStudentsData !== null || allStudentsData !== "" && allStudentsData > 10)
-// 			  	{
-// 			  		console.log(newJson)
-// 			  		// if(typeof(newJson) === null) 
-// 			  		// {	
-// 			  		// 	console.log(newJson)
-// 			  		// }
-// 			  		return newJson
-// 			  	}
-// 		  }
-// Baris akhir function
+					var jsonDirectory = "Absensi_JS/Store_Data/Students_Data.json"
+					
+					fetch(jsonDirectory, 
+					{
+						method : "POST",
+						headers : 
+								 {
+								   "Content-Type " : "application/json"
+								 },
+						body : JSON.stringify(
+						{	
+							"NameStudent" : this.NameStudents,
+							"Numbertudent" : this.NumberStudents,
+							"RandomCodeStudent" : window.randomCodeVar  	
+						})
+					})
+					.then(function response()
+					{	
+						if(NameStudent.ok && Numbertudent.ok && RandomCodeStudent.ok)
+						{
+							console.log("succes")
+						}
+						return jsonDirectory.json()
+					}).catch(function error()
+					{
+						console.log("error")
+					})
+				}
+    // Baris akhir function 
 }
 // Baris akhir object
 
@@ -232,26 +248,6 @@ const sendSubmitForm = inputData.FormContainer
 const submitStudentsData = sendSubmitForm.addEventListener("submit",Send_Student_Data,false)
 // Baris akhir event
 
-// Function untuk mengirim data ke file json
-// function SendToJson()
-// {	
-// 	let sendJsonData = inputData.ConvertJson()
-
-// 	switch(submitStudentsData)
-// 	{
-// 		case "submit" : while(submitStudentsData === "submit")
-// 						{
-// 							return sendJsonData	
-// 							break
-// 						}
-// 			break
-// 		case null : return
-// 			break
-// 	}
-// }
-// SendToJson()
-// Baris akhir fucntion 
-
 // function untuk mengirim data para siswa
 function Send_Student_Data(event)
 {	
@@ -266,7 +262,6 @@ function Send_Student_Data(event)
 	switch(submitDataFunction)
 	{ 	
 		case submitDataFunction : return submitDataFunction
-		case !null :  return window.location.href = "Attendance_Succes/Redirect.html" 
 		case !submitDataFunction : return senderForm.preventDefault()
 			break
 	}
