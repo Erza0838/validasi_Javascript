@@ -190,7 +190,7 @@ let inputData =
 	// Function untuk mengirim data ke file json
 	FormDataField : function transferData()
 				{
-					// let allData = new FormData(bodyForm)
+					let allData = new FormData(bodyForm)
 
 					var jsonDirectory = "Absensi_JS/Store_Data/Students_Data.json"
 					
@@ -210,11 +210,11 @@ let inputData =
 					})
 					.then(function response()
 					{	
-						if(NameStudent.ok && Numbertudent.ok && RandomCodeStudent.ok)
+						if(NameStudent !== "" && Numbertudent !== "" && RandomCodeStudent !== "")
 						{
 							console.log("succes")
 						}
-						return jsonDirectory.json()
+						return response.json()
 					}).catch(function error()
 					{
 						console.log("error")
