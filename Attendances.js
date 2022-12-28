@@ -16,7 +16,6 @@ const randomNumber = document.getElementById("Attendance_Random_Code")
 const tagInputRandomeCode = document.getElementById("Random_Number")
 // Baris akhir code
 
-
 // Bagian object yang terdiri dari array dan element html
 let setOfLeter = 
 {
@@ -170,7 +169,6 @@ let inputData =
 									}
 									// return window.location.href = "Attendance_Succes/Redirect.html"
 								}
-								
 								else								
 								{
 									window.alert(this.CodeInputEmpty)
@@ -190,35 +188,38 @@ let inputData =
 	// Function untuk mengirim data ke file json
 	FormDataField : function transferData()
 				{
-					let allData = new FormData(bodyForm)
+					let allData = Promises.resolve(new bodyForm(studentsName.value, studentsNumber.value, window.randomCodeVar))
 
-					var jsonDirectory = "Absensi_JS/Store_Data/Students_Data.json"
+					var jsonDirectory = "Store_Data/Students_Data.json"
 					
 					fetch(jsonDirectory, 
 					{
 						method : "POST",
 						headers : 
-								 {
-								   "Content-Type " : "application/json"
-								 },
+						{
+						  "Content-Type " : "application/json"
+						},
 						body : JSON.stringify(
 						{	
-							"NameStudent" : this.NameStudents,
-							"Numbertudent" : this.NumberStudents,
-							"RandomCodeStudent" : window.randomCodeVar  	
-						})
-					})
-					.then(function response()
-					{	
-						if(NameStudent !== "" && Numbertudent !== "" && RandomCodeStudent !== "")
-						{
-							console.log("succes")
-						}
-						return response.json()
-					}).catch(function error()
-					{
-						console.log("error")
-					})
+							allData
+							// NameStudents : studentsName.value,
+							// StudentsParentNumber : studentsNumber.value,
+							// StudentsRandomCode : window.randomCodeVar
+						})allData.then(function res(allData)
+							{	
+								if(jsonDirectory.status === 200 && jsonDirectory.ok)
+								{
+									// console.log("succes")
+									return allData.json()
+								}
+							})allData.then(function res(allData)
+							  {
+									if(jsonDirectory.status === 404)
+									{
+										return 
+									}
+							  })
+				    })
 				}
     // Baris akhir function 
 }
