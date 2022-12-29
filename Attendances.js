@@ -188,11 +188,13 @@ let inputData =
 	// Function untuk mengirim data ke file json
 	FormDataField : function transferData()
 				{	
-					let allData = new Promise(function (resolve, reject, allStudentsData)
+					var jsonDirectory = "Store_Data/Students_Data.json"
+
+					let allData = new Promise(function (resolve, reject)
 					{	
 						if(window.allStudentsData > 12)
 						{
-							resolve(
+							return Promise.resolve(
 							{
 								StudentsName : "window.allStudentsData[0]",
 								StudentsNumber : "window.allStudentsData[1]",
@@ -202,7 +204,7 @@ let inputData =
 
 						else if(window.allStudentsData < 12)
 						{
-							reject(
+							return reject(
 							{
 								StudentsName : "",
 								StudentsNumber : "",
@@ -210,34 +212,31 @@ let inputData =
 							})
 						}
 					})
-
-					var jsonDirectory = "Store_Data/Students_Data.json"
-					
+				
 					fetch(jsonDirectory, 
 					{
 						method : "POST",
 						headers : 
 						{
-						  "Content-Type " : "application/json"
+						"Content-Type " : "application/json"
 						},
 						body : JSON.stringify(
 						{	
-							 allData
-						}).allData.then(function (result)
+							allData
+						}).allData.then(function (resolve)
 							{	
 								if(jsonDirectory.status === 200 && jsonDirectory.ok)
 								{
-									return allData.json()
+									return resolve.json()
 								}
-								return result
-							}).allData.cath(function (error) 
-							  {
+							}).allData.cath(function (reject)
+							{
 								if(jsonDirectory.status === 404)
 								{
-									return error
+									return
 								}
-							  })
-				    })
+							})
+					})
 				}
     // Baris akhir function 
 }
