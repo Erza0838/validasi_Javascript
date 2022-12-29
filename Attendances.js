@@ -187,8 +187,29 @@ let inputData =
 
 	// Function untuk mengirim data ke file json
 	FormDataField : function transferData()
-				{
-					let allData = Promises.resolve(new bodyForm(studentsName.value, studentsNumber.value, window.randomCodeVar))
+				{	
+					let allData = new Promise(function (resolve, reject, allStudentsData)
+					{	
+						if(window.allStudentsData > 12)
+						{
+							resolve(
+							{
+								StudentsName : "window.allStudentsData[0]",
+								StudentsNumber : "window.allStudentsData[1]",
+								StudentsRandomCode : "window.allStudentsData[2]"
+							})
+						}
+
+						else if(window.allStudentsData < 12)
+						{
+							reject(
+							{
+								StudentsName : "",
+								StudentsNumber : "",
+								StudentsRandomCode : "" 
+							})
+						}
+					})
 
 					var jsonDirectory = "Store_Data/Students_Data.json"
 					
@@ -201,23 +222,20 @@ let inputData =
 						},
 						body : JSON.stringify(
 						{	
-							allData
-							// NameStudents : studentsName.value,
-							// StudentsParentNumber : studentsNumber.value,
-							// StudentsRandomCode : window.randomCodeVar
-						})allData.then(function res(allData)
+							 allData
+						}).allData.then(function (result)
 							{	
 								if(jsonDirectory.status === 200 && jsonDirectory.ok)
 								{
-									// console.log("succes")
 									return allData.json()
 								}
-							})allData.then(function res(allData)
+								return result
+							}).allData.cath(function (error) 
 							  {
-									if(jsonDirectory.status === 404)
-									{
-										return 
-									}
+								if(jsonDirectory.status === 404)
+								{
+									return error
+								}
 							  })
 				    })
 				}
@@ -263,8 +281,7 @@ function Send_Student_Data(event)
 	switch(submitDataFunction)
 	{ 	
 		case submitDataFunction : return submitDataFunction
-		case !submitDataFunction : return senderForm.preventDefault()
-			break
+		case !submitDataFunction :  return senderForm.preventDefault()
 	}
 	return submitDataFunction
 }
