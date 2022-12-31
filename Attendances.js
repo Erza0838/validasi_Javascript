@@ -160,7 +160,7 @@ let inputData =
 							{
 								if(randomCodeVar !== "" || randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
 								{	
-									var allStudentsData = [studentsName.value, studentsNumber.value, randomCodeVar.value]
+									var allStudentsData = [this.NameStudents, this.NumberStudents, randomCodeVar.value]
 
 									window.alert(this.CodeInputFull)
 									if(allStudentsData !== null || allStudentsData !== "")
@@ -190,52 +190,45 @@ let inputData =
 				{	
 					var jsonDirectory = "Store_Data/Students_Data.json"
 
-					let allData = new Promise(function (resolve, reject)
-					{	
+					let allData = new Promise(function (resolve, reject) 
+					{
 						if(window.allStudentsData > 12)
-						{
-							return Promise.resolve(
+						{	
+							if(jsonDirectory.status === 200 && jsonDirectory.ok)
 							{
-								StudentsName : "window.allStudentsData[0]",
-								StudentsNumber : "window.allStudentsData[1]",
-								StudentsRandomCode : "window.allStudentsData[2]"
-							})
+								return Promise.resolve
+							}
 						}
 
-						else if(window.allStudentsData < 12)
-						{
-							return reject(
+						if(window.allStudentsData < 12)
+						{	
+							if(jsonDirectory.status !== 200 && !jsonDirectory.ok) 
 							{
-								StudentsName : "",
-								StudentsNumber : "",
-								StudentsRandomCode : "" 
-							})
+								return reject("")
+							}
 						}
 					})
-				
+					
 					fetch(jsonDirectory, 
 					{
 						method : "POST",
+						mode : "cors",
 						headers : 
-						{
-						"Content-Type " : "application/json"
-						},
+								{
+									"Content-Type" : "application/json"
+								},
 						body : JSON.stringify(
 						{	
-							allData
+							"StudentsName" : "windowallStudentsData[0]",
+							"StudentsNumber" : "window.allStudentsData[1]",
+							"StudentsRandomCode" : "window.allStudentsData[2]"
 						}).allData.then(function (resolve)
-							{	
-								if(jsonDirectory.status === 200 && jsonDirectory.ok)
-								{
-									return resolve.json()
-								}
-							}).allData.cath(function (reject)
-							{
-								if(jsonDirectory.status === 404)
-								{
-									return
-								}
-							})
+						{	
+							return resolve.json()
+						}).allData.catch(function (reject)
+						{
+							return reject
+						})
 					})
 				}
     // Baris akhir function 
