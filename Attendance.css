@@ -5,6 +5,14 @@ body
 	background-color: salmon;
 	box-sizing: var(--Border-Box);
 	scroll-behavior: smooth;
+	/* overflow: scroll; */
+	overflow: visible;
+}
+
+body::-web-kit-scrollbar
+{
+	height: 15vmin;	
+	width: 8vmin;
 }
 
 :root
@@ -107,7 +115,15 @@ form > input.Random_Number_Input
 		background-color: salmon;
 		box-sizing: var(--Border-Box);
 		height: 100vmax;
-		scroll-behavior: smooth
+		scroll-behavior: smooth;
+		/* overflow-x: hidden; */
+		overflow-x: hidden;
+	}
+
+	body::-web-kit-scrollbar:horizontal
+	{
+		width: 4vmax;
+		height: 5vmax;
 	}
 
 	/* Bagian untuk menampilkan code acak */
@@ -201,7 +217,14 @@ form > input.Random_Number_Input
 		background-color: salmon;
 		box-sizing: var(--Border-Box);
 		height: 90vmax;
-		scroll-behavior: smooth
+		scroll-behavior: smooth;
+		overflow-x: hidden;
+	}
+
+	body::-web-kit-scrollbar:horizontal
+	{
+		width: 4vmax;
+		height: 5vmax;
 	}
 
 	.Attendance_Container

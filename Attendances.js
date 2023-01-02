@@ -160,11 +160,12 @@ let inputData =
 							{
 								if(randomCodeVar !== "" || randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
 								{	
-									var allStudentsData = [this.NameStudents, this.NumberStudents, randomCodeVar.value]
+									var allStudentsData = [studentsName.value, studentsNumber.value, randomCodeVar]
 
 									window.alert(this.CodeInputFull)
 									if(allStudentsData !== null || allStudentsData !== "")
 									{	
+										console.log(JSON.stringify(allStudentsData))
 										this.FormDataField()										
 									}
 									// return window.location.href = "Attendance_Succes/Redirect.html"
@@ -184,7 +185,7 @@ let inputData =
 						}
 					},
 	// Baris akhir function
-
+					
 	// Function untuk mengirim data ke file json
 	FormDataField : function transferData()
 				{	
@@ -192,44 +193,42 @@ let inputData =
 
 					let allData = new Promise(function (resolve, reject) 
 					{
-						if(window.allStudentsData > 12)
-						{	
-							if(jsonDirectory.status === 200 && jsonDirectory.ok)
-							{
-								return Promise.resolve
-							}
-						}
-
-						if(window.allStudentsData < 12)
-						{	
-							if(jsonDirectory.status !== 200 && !jsonDirectory.ok) 
-							{
-								return reject("")
-							}
-						}
-					})
-					
-					fetch(jsonDirectory, 
-					{
-						method : "POST",
-						mode : "cors",
-						headers : 
-								{
-									"Content-Type" : "application/json"
-								},
-						body : JSON.stringify(
-						{	
-							"StudentsName" : "windowallStudentsData[0]",
-							"StudentsNumber" : "window.allStudentsData[1]",
-							"StudentsRandomCode" : "window.allStudentsData[2]"
-						}).allData.then(function (resolve)
-						{	
-							return resolve.json()
-						}).allData.catch(function (reject)
+						fetch(jsonDirectory, 
 						{
-							return reject
+							method : "POST",
+							mode : "cors",
+							headers : 
+									{
+										"Content-Type" : "application/json"
+									},
+							body : JSON.stringify(
+							{	
+								"NameOfStudent" : studentsName.value,
+								"ParentNumberOfStudent" : studentsNumber.value,
+								"RandomCodeOfStudent" : window.randomCodeVar
+							}).then((resolveData) =>
+							{	
+								if(window.allStudentsData > 10)
+								{	
+									if(jsonDirectory.status === 200 && jsonDirectory.ok)
+									{
+										return Promise.resolveData.json()
+									}
+								}
+							}).then((rejectData) =>
+							{	
+								if(window.allStudentsData < 10)
+								{	
+									if(jsonDirectory.status !== 200 && !jsonDirectory.ok) 
+									{
+										return rejectData("")
+									}
+								}
+							})
 						})
+						return window.allStudentsData
 					})
+
 				}
     // Baris akhir function 
 }
