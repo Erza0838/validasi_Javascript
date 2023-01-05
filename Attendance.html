@@ -1,49 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>
-		Absensi JS
-	</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Absensi JS</title>
 
-	<link rel="stylesheet" type="text/css" href="Attendance.css">
+    <link rel="stylesheet" type="text/css" href="Attendance.css" />
 
-	<script src="Attendances.js" type="text/javascript" defer></script>
+    <script src="Attendances.js" type="text/javascript" defer></script>
+  </head>
+  <body>
+    <!-- Menampilkan kode acak -->
+    <div class="Attendance_Code" id="Attendance_Random_Code"></div>
+    <!-- Baris akhir code -->
 
-</head>
-<body>
+    <!-- Attendance_Succes/Redirect.html -->
 
-<!-- Menampilkan kode acak -->
-<div class="Attendance_Code" id="Attendance_Random_Code">
-	
-</div>
-<!-- Baris akhir code -->
+    <!-- Bagian form untuk mengisi data siswa -->
+    <div class="Attendance_Container">
+      <form action="" id="Body_Form" method="PUT">
+        <label>Nama Siswa : </label>
+        <!-- input untuk memasukkan nama siswa -->
+  <input
+    type="text"
+    class="Student_Name_Input"
+    id="Username_Input"
+    autocomplete="off"
+  />
 
-<!-- Attendance_Succes/Redirect.html -->
+        <label>Nomer Induk Siswa : </label>
+        <!-- input untuk memasukkan nomer induk siswa -->
+        <input
+          type="number"
+          class="Student_Number_Input"
+          id="Number_Input"
+          autocomplete="off"
+        />
 
-<!-- Bagian form untuk mengisi data siswa -->
-	<div class="Attendance_Container">
-		<form action="" id="Body_Form" method="POST">
-			<label>Nama Siswa : </label>
-				<!-- input untuk memasukkan nama siswa -->
-				<input type="text" class="Student_Name_Input" id="Username_Input" autocomplete="off">
+        <!-- input untuk memasukkan kode acak -->
+        <input
+          placeholder="Masukkan code"
+          type="text"
+          class="Random_Number_Input"
+          id="Random_Number"
+          autocomplete="off"
+        />
 
-			<label>Nomer Induk Siswa : </label>
-				<!-- input untuk memasukkan nomer induk siswa -->
-				<input type="number" class="Student_Number_Input" id="Number_Input" autocomplete="off">
-
-				<!-- input untuk memasukkan kode acak -->
-				<input placeholder="Masukkan code" type="text" class="Random_Number_Input" id="Random_Number" autocomplete="off">
-
-			<!-- Tombol untuk mengirimkan data -->
-			<button type="submit" id="Send_Students_Data">
-				Kirim Data
-			</button>
-
-		</form>
-	</div>
-<!-- Baris akhir form -->
-
-</body>
+        <!-- Tombol untuk mengirimkan data -->
+        <button type="submit" id="Send_Students_Data">Kirim Data</button>
+      </form>
+    </div>
+    <!-- Baris akhir form -->
+  </body>
 </html>

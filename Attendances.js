@@ -189,46 +189,56 @@ let inputData =
 	// Function untuk mengirim data ke file json
 	FormDataField : function transferData()
 				{	
-					var jsonDirectory = "Store_Data/Students_Data.json"
+					let jsonDirectory = "/Store_Data/Students_Data.json"
 
-					let allData = new Promise(function (resolve, reject) 
+					// let dataInputFielad = new data(ReceiveData)
+
+					var saveData = window.allStudentsData
+
+					fetch(jsonDirectory,
+					{	
+						method : "PUT",
+						header : 
+								{
+									"Content-Type" : "application/json"
+								},
+						body : JSON.stringify
+								({
+									"NameOfStudent" : studentsName.value,
+									"ParentNumberOfStudent" : studentsNumber.value,
+									"RandomCodeOfStudent" : window.randomCodeVar
+								}),
+						mode : "no-cors"
+					}).then(function dataInputFielad(...saveData) 
+					{	
+						if(saveData > 10)
+						{	
+							if(jsonDirectory.ok)
+							{	
+								for (let saveNewData of saveData) 
+								{	
+									return saveNewData.json()
+								}
+							}
+						}
+						if(saveData < 10)
+						{	
+							if(!jsonDirectory)
+							{
+								return
+							}
+						}
+					}).then(function dataInputFielad(...saveData) 
 					{
-						fetch(jsonDirectory, 
-						{
-							method : "POST",
-							mode : "cors",
-							headers : 
-									{
-										"Content-Type" : "application/json"
-									},
-							body : JSON.stringify(
-							{	
-								"NameOfStudent" : studentsName.value,
-								"ParentNumberOfStudent" : studentsNumber.value,
-								"RandomCodeOfStudent" : window.randomCodeVar
-							}).then((resolveData) =>
-							{	
-								if(window.allStudentsData > 10)
-								{	
-									if(jsonDirectory.status === 200 && jsonDirectory.ok)
-									{
-										return Promise.resolveData.json()
-									}
-								}
-							}).then((rejectData) =>
-							{	
-								if(window.allStudentsData < 10)
-								{	
-									if(jsonDirectory.status !== 200 && !jsonDirectory.ok) 
-									{
-										return rejectData("")
-									}
-								}
-							})
-						})
-						return window.allStudentsData
+						for (let logNewData of saveData) 
+						{	
+							for(let logvalue = 0; logNewData >= logvalue.length; logvalue++)
+							{
+								console.log(saveNewData.json([logvalue]))
+							}
+						}
 					})
-
+					
 				}
     // Baris akhir function 
 }
