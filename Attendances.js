@@ -14,6 +14,10 @@ const randomAlphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n",
 const randomNumber = document.getElementById("Attendance_Random_Code")
 
 const tagInputRandomeCode = document.getElementById("Random_Number")
+
+const copyIconVar = document.getElementById("Copy_Icon")
+
+let codeParagraf = document.getElementById("RandomCodeParagraf")
 // Baris akhir code
 
 // Bagian object yang terdiri dari array dan element html
@@ -22,6 +26,8 @@ let setOfLeter =
 	Letters : randomAlphabet,
 	RandomCodeElement : codeId,
 	RandomCodeDivElement : tagInputRandomeCode,
+	ShowCopyIcon : copyIconVar,
+	codeParagrafProperty : codeParagraf,
 	// Kumpulan function untuk memberi tanda apakah data sudah lengkap
 	WarningNameFalse : function RedNameTag()
 					{	
@@ -64,10 +70,40 @@ let setOfLeter =
 						{	
 							return tagInputRandomeCode.style.border = "none"
 						}
-					}
+					},
 // Baris akhir kumpulan function
+
+// Function untuk menjalankan event keypress
+KeyPressActived : function PressTwoKey()
+				 {
+					copyIconVar.addEventListener("click", () =>
+					{
+						AddKeyEvent()				
+					})				
+				 }
+// Baris akhir function 
 }
 // Bagian akhir Object
+
+// Function untuk menentukan Event
+function AddKeyEvent()
+{	
+	// DOM_KEY_LOCATION_STANDARD
+	copyIconVar.addEventListener("keypress", function UserPessKey(ControlKey, CKey)
+	{
+		switch(setOfLeter.KeyPressActived())
+		{	
+			case "click" : 
+				if("keypress" === ControlKey && CKey) 
+				{
+					
+				}
+			break
+		}
+	},{once: true})
+	
+}
+// Baris akhir function
 
 // Function untuk menampilkan array
 function ShowArrayValue()
@@ -151,12 +187,13 @@ let inputData =
 						{	
 							window.alert(this.TruegMessage)
 
-							RandomCodeContainer(randomNumberValue)
+							if(RandomCodeContainer(randomNumberValue))
+							{	
+								CopyPointer()
+								setOfLeter.TrueNameInput() && setOfLeter.TrueNumbersInput()
+							}
 
-							setOfLeter.TrueNameInput() && setOfLeter.TrueNumbersInput()
-
-							ShowInputTage()
-							if(ShowInputTage)
+							if(ShowInputTage())
 							{
 								if(randomCodeVar !== "" || randomCodeVar !== null && randomCodeVar === RandomCode(24.5))
 								{	
@@ -168,7 +205,7 @@ let inputData =
 										console.log(JSON.stringify(allStudentsData))
 										this.FormDataField()										
 									}
-									// return window.location.href = "Attendance_Succes/Redirect.html"
+									return window.location.href = "Attendance_Succes/Redirect.html"
 								}
 								else								
 								{
@@ -187,38 +224,27 @@ let inputData =
 	// Baris akhir function
 					
 	// Function untuk mengirim data ke file json
-	FormDataField : function transferData()
+	FormDataField : async function transferData()
 				{	
 					let jsonDirectory = "/Store_Data/Students_Data.json"
 
-					// let dataInputFielad = new data(ReceiveData)
-
-					var saveData = window.allStudentsData
+					var saveData = this.bodyForm
 
 					fetch(jsonDirectory,
 					{	
-						method : "PUT",
+						method : "GET",
 						header : 
 								{
 									"Content-Type" : "application/json"
 								},
-						body : JSON.stringify
-								({
-									"NameOfStudent" : studentsName.value,
-									"ParentNumberOfStudent" : studentsNumber.value,
-									"RandomCodeOfStudent" : window.randomCodeVar
-								}),
-						mode : "no-cors"
+						mode : "cors"
 					}).then(function dataInputFielad(...saveData) 
 					{	
 						if(saveData > 10)
 						{	
 							if(jsonDirectory.ok)
 							{	
-								for (let saveNewData of saveData) 
-								{	
-									return saveNewData.json()
-								}
+								return saveData.json()
 							}
 						}
 						if(saveData < 10)
@@ -249,7 +275,7 @@ function RandomCodeContainer(saveRandomCodeProperty)
 {	
 	var DisplayRandomeCode = saveRandomCodeProperty.style.display = "flex"
 
-	return DisplayRandomeCode += randomNumber.innerText = RandomCode(24.5)
+	return DisplayRandomeCode += setOfLeter.codeParagrafProperty.innerText = RandomCode(24.5)
 }
 // Baris akhir function
 
@@ -261,6 +287,18 @@ function ShowInputTage()
 	return inputDisplayBlock.style.display = "block"
 }
 // Baris akhir function
+
+// Function untuk menampilkan tombol copy
+function CopyPointer()
+{	
+	var changeIconDisplay = setOfLeter.copyIconVar
+
+	if(typeof setOfLeter.copyIconVar === "object")
+	{	
+		return changeIconDisplay.style = "block"
+	}
+}
+// Baris akhir function 
 
 // Event submit untuk mengirim data
 const sendSubmitForm = inputData.FormContainer

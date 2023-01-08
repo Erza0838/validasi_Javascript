@@ -9,12 +9,6 @@ body
 	overflow: visible;
 }
 
-body::-web-kit-scrollbar
-{
-	height: 15vmin;	
-	width: 8vmin;
-}
-
 :root
 {
 	--Border-Color: rgba(11,11,11,.9);
@@ -23,13 +17,14 @@ body::-web-kit-scrollbar
 	--None-Value: none;
 	--Block-Display: block;
 	--Font-Title-Color: rgba(11,11,11,.9);
+	--Pointer: pointer;
 }
-
 
 .Attendance_Code
 {
 	position: relative;
 	display: var(--None-Value);
+	/* display: flex; */
 	align-items: center;
 	justify-content: center;
 	margin: auto;
@@ -46,6 +41,25 @@ body::-web-kit-scrollbar
 	color: var(--Font-Title-Color);
 }
 
+.Copy_Icon
+{	
+	display: var(--Inline-Value) !important;
+	/* display: var(--None-Value) !important; */
+	cursor: var(--Pointer);
+	position: absolute;
+	/* display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around; */
+	transform: translate(3.3em, .7em);
+	z-index: 2;
+	overflow: visible;
+	box-sizing: border-box;
+	width: .9em;
+	height: .9em;
+}
+
 .Attendance_Container
 {	
 	position: relative;
@@ -56,7 +70,7 @@ body::-web-kit-scrollbar
 	flex-direction: column;
 	border: .17vw solid var(--Border-Color);
 	padding: 1em 1em 1em 1em;
-	width: calc(91vmin + 1%);
+	width: calc(100vmin + 1%);
 	height: calc(45vmin * 1.5);
 	margin-top: 13vh;
 	border-radius: 1vmin;
@@ -120,19 +134,14 @@ form > input.Random_Number_Input
 		overflow-x: hidden;
 	}
 
-	body::-web-kit-scrollbar:horizontal
-	{
-		width: 4vmax;
-		height: 5vmax;
-	}
-
 	/* Bagian untuk menampilkan code acak */
 	.Attendance_Code
 	{
 		position: relative;
 		display: var(--None-Value);
-		align-items: center;
+		/* align-items: center; */
 		justify-content: center;
+		/* flex-direction: row; */
 		margin: auto;
 		background-color: var(--Form-Background-Color);
 		width: 41vmax;
@@ -147,6 +156,25 @@ form > input.Random_Number_Input
 		color: var(--Font-Title-Color);
 	}
 	/* Baris akhir code */
+
+	.Copy_Icon
+	{
+		cursor: var(--Pointer);
+		/* display: var(--None-Value); */
+		position: absolute;
+		display: var(--None-Value);
+		/* display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-around; */
+		transform: translate(3.5em, .5em);
+		z-index: 2;
+		overflow: visible;
+		box-sizing: border-box;
+		width: .9em;
+		height: .9em;
+	}
 
 	.Attendance_Container
 	{	
@@ -221,10 +249,46 @@ form > input.Random_Number_Input
 		overflow-x: hidden;
 	}
 
-	body::-web-kit-scrollbar:horizontal
+	/* Bagian untuk menampilkan code acak */
+	.Attendance_Code
 	{
-		width: 4vmax;
-		height: 5vmax;
+		position: relative;
+		display: var(--None-Value);
+		/* align-items: center; */
+		justify-content: center;
+		margin: auto;
+		background-color: var(--Form-Background-Color);
+		width: 41vmax;
+		height: 16vmax;
+		transform: translate(0, 7vmax);
+		border: .17vw solid var(--Border-Color);
+		border-radius: 1vmin;
+		box-sizing: var(--Border-Box);
+		font-weight: bold;
+		font-size: 5vmin;
+		font-family: 'Ubuntu', sans-serif;	
+		color: var(--Font-Title-Color);
+	}
+	/* Baris akhir code */
+
+	.Copy_Icon
+	{
+		cursor: var(--Pointer);
+		/* display: var(--None-Value); */
+		position: absolute;
+		--Inline-Value: inline;
+		display: var(--Inline-Value);
+		/* display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		justify-content: space-around; */
+		transform: translate(3.5em, .5em);
+		z-index: 2;
+		overflow: visible;
+		box-sizing: border-box;
+		width: .9em;
+		height: .9em;
 	}
 
 	.Attendance_Container
