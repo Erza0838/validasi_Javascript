@@ -74,36 +74,22 @@ let setOfLeter =
 // Baris akhir kumpulan function
 
 // Function untuk menjalankan event keypress
-KeyPressActived : function PressTwoKey()
-				 {
-					copyIconVar.addEventListener("click", () =>
+ClipBoardActived : copyIconVar.addEventListener("click", () =>
+				{
+					navigator.clipboard.readText()
+					.then(() =>
 					{
-						AddKeyEvent()				
-					})				
-				 }
+						let hasSelectingElement = codeParagraf.select()
+					
+						let selectElementTrue = hasSelectingElement.execCommand("copy", false, null)		
+
+						return selectElementTrue
+					})
+				},{once: true})			
 // Baris akhir function 
 }
 // Bagian akhir Object
-
-// Function untuk menentukan Event
-function AddKeyEvent()
-{	
-	// DOM_KEY_LOCATION_STANDARD
-	copyIconVar.addEventListener("keypress", function UserPessKey(ControlKey, CKey)
-	{
-		switch(setOfLeter.KeyPressActived())
-		{	
-			case "click" : 
-				if("keypress" === ControlKey && CKey) 
-				{
-					
-				}
-			break
-		}
-	},{once: true})
-	
-}
-// Baris akhir function
+setOfLeter.ClipBoardActived
 
 // Function untuk menampilkan array
 function ShowArrayValue()
